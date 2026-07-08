@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bjcrhgraixowl"]
+
+[ext_resource type="Texture2D" uid="uid://dtxrausekdw2d" path="res://Sprite/test_entidad.png" id="1_50a3w"]
+[ext_resource type="Script" uid="uid://cspb012kfmro4" path="res://Script/entidad_test.gd" id="1_jyp6m"]
+[ext_resource type="Script" uid="uid://cwhaa8amlqsg1" path="res://Escenas/Accion.gd" id="3_imt58"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jyp6m"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_imt58"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uut0w"]
+radius = 8.0
+
+[node name="Entidad_test" type="CharacterBody2D" unique_id=1461444522 node_paths=PackedStringArray("area2d")]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_jyp6m")
+vida_entidad = 2
+velocidad = 50.0
+area2d = NodePath("Area_reaccion")
+
+[node name="Cuerpo_area" type="CollisionShape2D" parent="." unique_id=1397124769]
+light_mask = 0
+visibility_layer = 0
+shape = SubResource("CircleShape2D_jyp6m")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=409092971]
+texture = ExtResource("1_50a3w")
+
+[node name="Area_reaccion" type="Area2D" parent="." unique_id=1252161463]
+collision_layer = 8
+collision_mask = 52
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_reaccion" unique_id=44599145]
+shape = SubResource("CircleShape2D_imt58")
+
+[node name="Area_accion" type="Area2D" parent="." unique_id=649655404]
+collision_layer = 8
+collision_mask = 48
+script = ExtResource("3_imt58")
+"tamaño" = 10.0
+tipo = "Ataque"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_accion" unique_id=356209872]
+shape = SubResource("CircleShape2D_uut0w")
+disabled = true

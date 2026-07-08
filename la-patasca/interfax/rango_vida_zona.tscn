@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://ygrf5cfx2c18"]
+
+[ext_resource type="Script" uid="uid://bdl22ja17lcik" path="res://interfax/UI_patasca.gd" id="1_1ebrk"]
+[ext_resource type="Script" uid="uid://chfec5w3bcgnj" path="res://interfax/UI_vida_jugador.gd" id="1_mcmf2"]
+[ext_resource type="Texture2D" uid="uid://ctooujvur6ma3" path="res://interfax/GUISprite.png" id="1_xx43s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0y7s"]
+atlas = ExtResource("1_xx43s")
+region = Rect2(16, 112, 64, 16)
+
+[sub_resource type="Gradient" id="Gradient_mcmf2"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1ebrk"]
+gradient = SubResource("Gradient_mcmf2")
+
+[sub_resource type="Gradient" id="Gradient_kdp1j"]
+offsets = PackedFloat32Array(0.24742268, 0.58762884, 0.91752577, 1)
+colors = PackedColorArray(0.8, 1, 0, 1, 0.93333334, 0.34509805, 0, 1, 0, 0.46001482, 0.4070855, 1, 0, 0.15686275, 0.57254905, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xvl6i"]
+gradient = SubResource("Gradient_kdp1j")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcmf2"]
+atlas = ExtResource("1_xx43s")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ebrk"]
+atlas = ExtResource("1_xx43s")
+region = Rect2(16, 16, 16, 16)
+
+[node name="UI_vida_bar" type="CanvasLayer" unique_id=1174858941]
+
+[node name="Control" type="Control" parent="." unique_id=213342787]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=2077087019]
+custom_minimum_size = Vector2(64, 16)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -83.0
+offset_right = 89.00037
+offset_bottom = -67.0
+grow_vertical = 0
+scale = Vector2(4.01, 4.01)
+script = ExtResource("1_1ebrk")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/MarginContainer" unique_id=1966301081]
+custom_minimum_size = Vector2(64, 16)
+layout_mode = 2
+texture = SubResource("AtlasTexture_k0y7s")
+region_rect = Rect2(0, 0, 64, 16)
+patch_margin_left = 32
+patch_margin_right = 8
+axis_stretch_horizontal = 1
+
+[node name="zonaS" type="TextureProgressBar" parent="Control/MarginContainer/NinePatchRect" unique_id=1686607600]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.7742
+offset_top = 7.31514
+offset_right = -3.0719452
+offset_bottom = -3.97023
+grow_horizontal = 2
+grow_vertical = 2
+rounded = true
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture1D_1ebrk")
+texture_progress = SubResource("GradientTexture1D_xvl6i")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control" unique_id=316494477]
+custom_minimum_size = Vector2(64, 16)
+layout_mode = 0
+offset_left = 30.0
+offset_top = 15.0
+offset_right = 94.0
+offset_bottom = 31.0
+scale = Vector2(3, 3)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer2" unique_id=317994442]
+layout_mode = 2
+script = ExtResource("1_mcmf2")
+corazon_null = SubResource("AtlasTexture_mcmf2")
+corazon_full = SubResource("AtlasTexture_1ebrk")

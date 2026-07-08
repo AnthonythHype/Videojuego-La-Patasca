@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dok21xfb17d1b"]
+
+[node name="audio_generales" type="Node" unique_id=1991901370]
+
+[node name="UI" type="Node" parent="." unique_id=745837835]
+
+[node name="Musica_audio" type="AudioStreamPlayer" parent="UI" unique_id=2029942187]
+bus = &"Musica"
+
+[node name="SFX_audio" type="AudioStreamPlayer" parent="UI" unique_id=1429827731]
+bus = &"SFX"
+
+[node name="UI_audio" type="AudioStreamPlayer" parent="UI" unique_id=988643096]
+bus = &"UI"
+
+[node name="escenario" type="Node" parent="." unique_id=505746208]
+
+[node name="Musica_audio" type="AudioStreamPlayer" parent="escenario" unique_id=889786897]
+bus = &"Musica"
+
+[node name="SFX_audio" type="AudioStreamPlayer" parent="escenario" unique_id=234970052]
+bus = &"SFX"
+
+[node name="UI_audio" type="AudioStreamPlayer" parent="escenario" unique_id=2129781521]
+bus = &"UI"

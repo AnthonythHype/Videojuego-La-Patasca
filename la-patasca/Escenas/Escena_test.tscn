@@ -1,0 +1,135 @@
+[gd_scene format=4 uid="uid://epw7uwf35rpn"]
+
+[ext_resource type="PackedScene" uid="uid://ctmioe70d20fe" path="res://Escenas/Personaje.tscn" id="1_rqqkd"]
+[ext_resource type="Texture2D" uid="uid://bimmy40q0j3v0" path="res://Sprite/test_bloque.png" id="2_n165g"]
+[ext_resource type="PackedScene" uid="uid://dwwhyiux71uu7" path="res://Escenas/Patasca.tscn" id="3_tuxke"]
+[ext_resource type="PackedScene" uid="uid://bjcrhgraixowl" path="res://Escenas/Entidad_test.tscn" id="4_qqc4j"]
+[ext_resource type="Script" uid="uid://ct21wpynvrk0i" path="res://Script/enemy_spawn.gd" id="5_tktqm"]
+[ext_resource type="Texture2D" uid="uid://cj6pe0kxs7gxf" path="res://interfax/imagenes/sopa.jpg" id="6_n1g0h"]
+[ext_resource type="Texture2D" uid="uid://0wlnlylfhmqo" path="res://interfax/imagenes/entidad.jpg" id="7_7dnrs"]
+[ext_resource type="Texture2D" uid="uid://qd78bs0tug7o" path="res://interfax/imagenes/configuraciones.jpg" id="8_lsfpk"]
+[ext_resource type="Texture2D" uid="uid://dehspwd17v3vo" path="res://interfax/imagenes/salida.jpg" id="9_gqmtc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tuxke"]
+texture = ExtResource("2_n165g")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
+
+[sub_resource type="TileSet" id="TileSet_rqqkd"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 2
+sources/0 = SubResource("TileSetAtlasSource_tuxke")
+
+[node name="escenarioTest" type="Node2D" unique_id=517493756]
+
+[node name="TileMap" type="TileMapLayer" parent="." unique_id=1791674850]
+tile_map_data = PackedByteArray("AAD4/wMAAAAAAAAAAAD5/wMAAAAAAAAAAAD4/wIAAAAAAAAAAAD5/wIAAAAAAAAAAAD5/wQAAAAAAAAAAAD4/wQAAAAAAAAAAAD4//z/AAAAAAAAAAD5//z/AAAAAAAAAAD5//v/AAAAAAAAAAD4//v/AAAAAAAAAAAHAAUAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAGAPr/AAAAAAAAAAAHAPr/AAAAAAAAAAAHAPv/AAAAAAAAAAAGAPv/AAAAAAAAAADx//f/AAAAAAAAAADy//f/AAAAAAAAAADz//f/AAAAAAAAAAD0//f/AAAAAAAAAAD1//f/AAAAAAAAAAD2//f/AAAAAAAAAAD3//f/AAAAAAAAAAD4//f/AAAAAAAAAAD5//f/AAAAAAAAAAD6//f/AAAAAAAAAAD7//f/AAAAAAAAAAD8//f/AAAAAAAAAAD9//f/AAAAAAAAAAD+//f/AAAAAAAAAAD///f/AAAAAAAAAAAAAPf/AAAAAAAAAAABAPf/AAAAAAAAAAACAPf/AAAAAAAAAAADAPf/AAAAAAAAAAAEAPf/AAAAAAAAAAAFAPf/AAAAAAAAAAAGAPf/AAAAAAAAAAAHAPf/AAAAAAAAAAAIAPf/AAAAAAAAAAAJAPf/AAAAAAAAAAAKAPf/AAAAAAAAAAALAPf/AAAAAAAAAAAMAPf/AAAAAAAAAAANAPf/AAAAAAAAAAAOAPf/AAAAAAAAAAAOAPj/AAAAAAAAAAAOAPn/AAAAAAAAAAAOAPr/AAAAAAAAAAAOAPv/AAAAAAAAAAAOAPz/AAAAAAAAAAAOAP3/AAAAAAAAAAAOAP7/AAAAAAAAAAAOAP//AAAAAAAAAAAOAAAAAAAAAAAAAAAOAAEAAAAAAAAAAAAOAAIAAAAAAAAAAAAOAAMAAAAAAAAAAAAOAAQAAAAAAAAAAAAOAAUAAAAAAAAAAAAOAAYAAAAAAAAAAAAOAAcAAAAAAAAAAAAOAAgAAAAAAAAAAAANAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAALAAgAAAAAAAAAAAAKAAgAAAAAAAAAAAAJAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAD//wgAAAAAAAAAAAAAAAgAAAAAAAAAAAABAAgAAAAAAAAAAAADAAgAAAAAAAAAAAACAAgAAAAAAAAAAAD+/wgAAAAAAAAAAAD9/wgAAAAAAAAAAAD8/wgAAAAAAAAAAAD7/wgAAAAAAAAAAAD6/wgAAAAAAAAAAAD5/wgAAAAAAAAAAAD4/wgAAAAAAAAAAAD3/wgAAAAAAAAAAAD2/wgAAAAAAAAAAAD1/wgAAAAAAAAAAAD0/wgAAAAAAAAAAADz/wgAAAAAAAAAAADy/wgAAAAAAAAAAADx/wgAAAAAAAAAAADx/wcAAAAAAAAAAADx/wYAAAAAAAAAAADx/wUAAAAAAAAAAADx/wQAAAAAAAAAAADx/wMAAAAAAAAAAADx/wIAAAAAAAAAAADx/wEAAAAAAAAAAADx/wAAAAAAAAAAAADx////AAAAAAAAAADx//7/AAAAAAAAAADx//3/AAAAAAAAAADx//z/AAAAAAAAAADx//v/AAAAAAAAAADx//r/AAAAAAAAAADx//n/AAAAAAAAAADx//j/AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_rqqkd")
+
+[node name="EnemySpawn" type="Node2D" parent="." unique_id=1403604962 node_paths=PackedStringArray("Nodo_entidades", "timer")]
+script = ExtResource("5_tktqm")
+Nodo_entidades = NodePath("../Entidades")
+_Enemigos = Array[PackedScene]([ExtResource("4_qqc4j")])
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="EnemySpawn" unique_id=167434207]
+
+[node name="Entidades" type="Node2D" parent="." unique_id=1827774021]
+
+[node name="Patasca" parent="Entidades" unique_id=239368157 instance=ExtResource("3_tuxke")]
+
+[node name="Personaje" parent="Entidades" unique_id=1352873288 instance=ExtResource("1_rqqkd")]
+position = Vector2(70, 32)
+
+[node name="Camera2D" type="Camera2D" parent="Entidades/Personaje" unique_id=1244682404]
+zoom = Vector2(1.885, 1.885)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.15
+drag_top_margin = 0.15
+drag_right_margin = 0.15
+drag_bottom_margin = 0.15
+editor_draw_drag_margin = true
+
+[node name="Node2D" type="Node2D" parent="." unique_id=133452223]
+position = Vector2(-114, -64)
+
+[node name="Pausa_menu" type="HBoxContainer" parent="." unique_id=316444100]
+visible = false
+anchors_preset = -1
+anchor_left = 0.115
+anchor_top = 0.354
+anchor_right = 0.88500005
+anchor_bottom = 0.694
+offset_top = -0.30000305
+offset_right = -6.1035156e-05
+offset_bottom = 0.19998169
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pausa_menu" unique_id=987810835]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="img_continuar" type="TextureRect" parent="Pausa_menu/VBoxContainer" unique_id=715610761]
+custom_minimum_size = Vector2(0, 170)
+layout_mode = 2
+texture = ExtResource("6_n1g0h")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="button_continuar" type="Button" parent="Pausa_menu/VBoxContainer" unique_id=1537634038]
+layout_mode = 2
+size_flags_vertical = 14
+text = "Continuar"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Pausa_menu" unique_id=1517644347]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="img_reiniciar" type="TextureRect" parent="Pausa_menu/VBoxContainer2" unique_id=1136076856]
+custom_minimum_size = Vector2(0, 170)
+layout_mode = 2
+texture = ExtResource("7_7dnrs")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="button_reiniciar" type="Button" parent="Pausa_menu/VBoxContainer2" unique_id=247388439]
+layout_mode = 2
+size_flags_vertical = 14
+text = "Reiniciar"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Pausa_menu" unique_id=1061098652]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="img_configuraciones" type="TextureRect" parent="Pausa_menu/VBoxContainer3" unique_id=752198650]
+custom_minimum_size = Vector2(0, 170)
+layout_mode = 2
+texture = ExtResource("8_lsfpk")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="button_configuraciones" type="Button" parent="Pausa_menu/VBoxContainer3" unique_id=1846776773]
+layout_mode = 2
+size_flags_vertical = 14
+text = "Configuraciones"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="Pausa_menu" unique_id=1064876772]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="img_salir" type="TextureRect" parent="Pausa_menu/VBoxContainer4" unique_id=78765804]
+custom_minimum_size = Vector2(0, 170)
+layout_mode = 2
+texture = ExtResource("9_gqmtc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="button_salir" type="Button" parent="Pausa_menu/VBoxContainer4" unique_id=1925167103]
+layout_mode = 2
+size_flags_vertical = 14
+text = "Salir"

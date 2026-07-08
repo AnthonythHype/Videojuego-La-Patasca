@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://ygrf5cfx2c18"]
+
+[ext_resource type="Script" uid="uid://chfec5w3bcgnj" path="res://interfax/UI_vida_jugador.gd" id="1_mcmf2"]
+[ext_resource type="Texture2D" uid="uid://ctooujvur6ma3" path="res://interfax/GUISprite.png" id="1_xx43s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcmf2"]
+atlas = ExtResource("1_xx43s")
+region = Rect2(64, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ebrk"]
+atlas = ExtResource("1_xx43s")
+region = Rect2(16, 16, 16, 16)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1174858941]
+
+[node name="Control" type="Control" parent="." unique_id=213342787]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=2077087019]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/MarginContainer" unique_id=1966301081]
+layout_mode = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Control/MarginContainer/NinePatchRect" unique_id=1686607600]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=317994442]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_mcmf2")
+corazon_null = SubResource("AtlasTexture_mcmf2")
+corazon_full = SubResource("AtlasTexture_1ebrk")

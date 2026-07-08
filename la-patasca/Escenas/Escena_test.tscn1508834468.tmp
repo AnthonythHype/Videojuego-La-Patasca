@@ -1,0 +1,41 @@
+[gd_scene format=4 uid="uid://epw7uwf35rpn"]
+
+[ext_resource type="PackedScene" uid="uid://ctmioe70d20fe" path="res://Escenas/Personaje.tscn" id="1_rqqkd"]
+[ext_resource type="Texture2D" uid="uid://bimmy40q0j3v0" path="res://Sprite/test_bloque.png" id="2_n165g"]
+[ext_resource type="PackedScene" uid="uid://dwwhyiux71uu7" path="res://Escenas/Patasca.tscn" id="3_tuxke"]
+[ext_resource type="PackedScene" uid="uid://bjcrhgraixowl" path="res://Escenas/Entidad_test.tscn" id="4_qqc4j"]
+[ext_resource type="Script" uid="uid://ct21wpynvrk0i" path="res://Script/enemy_spawn.gd" id="5_tktqm"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tuxke"]
+texture = ExtResource("2_n165g")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 8, 8, 8, 8, -8, -8, -8)
+
+[sub_resource type="TileSet" id="TileSet_rqqkd"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 2
+sources/0 = SubResource("TileSetAtlasSource_tuxke")
+
+[node name="Node2D" type="Node2D" unique_id=517493756]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1858141454]
+zoom = Vector2(2.535, 2.535)
+
+[node name="TileMap" type="TileMapLayer" parent="." unique_id=1791674850]
+tile_map_data = PackedByteArray("AAD4/wMAAAAAAAAAAAD5/wMAAAAAAAAAAAD4/wIAAAAAAAAAAAD5/wIAAAAAAAAAAAD5/wQAAAAAAAAAAAD4/wQAAAAAAAAAAAD4//z/AAAAAAAAAAD5//z/AAAAAAAAAAD5//v/AAAAAAAAAAD4//v/AAAAAAAAAAAHAAUAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAGAPr/AAAAAAAAAAAHAPr/AAAAAAAAAAAHAPv/AAAAAAAAAAAGAPv/AAAAAAAAAADx//f/AAAAAAAAAADy//f/AAAAAAAAAADz//f/AAAAAAAAAAD0//f/AAAAAAAAAAD1//f/AAAAAAAAAAD2//f/AAAAAAAAAAD3//f/AAAAAAAAAAD4//f/AAAAAAAAAAD5//f/AAAAAAAAAAD6//f/AAAAAAAAAAD7//f/AAAAAAAAAAD8//f/AAAAAAAAAAD9//f/AAAAAAAAAAD+//f/AAAAAAAAAAD///f/AAAAAAAAAAAAAPf/AAAAAAAAAAABAPf/AAAAAAAAAAACAPf/AAAAAAAAAAADAPf/AAAAAAAAAAAEAPf/AAAAAAAAAAAFAPf/AAAAAAAAAAAGAPf/AAAAAAAAAAAHAPf/AAAAAAAAAAAIAPf/AAAAAAAAAAAJAPf/AAAAAAAAAAAKAPf/AAAAAAAAAAALAPf/AAAAAAAAAAAMAPf/AAAAAAAAAAANAPf/AAAAAAAAAAAOAPf/AAAAAAAAAAAOAPj/AAAAAAAAAAAOAPn/AAAAAAAAAAAOAPr/AAAAAAAAAAAOAPv/AAAAAAAAAAAOAPz/AAAAAAAAAAAOAP3/AAAAAAAAAAAOAP7/AAAAAAAAAAAOAP//AAAAAAAAAAAOAAAAAAAAAAAAAAAOAAEAAAAAAAAAAAAOAAIAAAAAAAAAAAAOAAMAAAAAAAAAAAAOAAQAAAAAAAAAAAAOAAUAAAAAAAAAAAAOAAYAAAAAAAAAAAAOAAcAAAAAAAAAAAAOAAgAAAAAAAAAAAANAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAALAAgAAAAAAAAAAAAKAAgAAAAAAAAAAAAJAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAD//wgAAAAAAAAAAAAAAAgAAAAAAAAAAAABAAgAAAAAAAAAAAADAAgAAAAAAAAAAAACAAgAAAAAAAAAAAD+/wgAAAAAAAAAAAD9/wgAAAAAAAAAAAD8/wgAAAAAAAAAAAD7/wgAAAAAAAAAAAD6/wgAAAAAAAAAAAD5/wgAAAAAAAAAAAD4/wgAAAAAAAAAAAD3/wgAAAAAAAAAAAD2/wgAAAAAAAAAAAD1/wgAAAAAAAAAAAD0/wgAAAAAAAAAAADz/wgAAAAAAAAAAADy/wgAAAAAAAAAAADx/wgAAAAAAAAAAADx/wcAAAAAAAAAAADx/wYAAAAAAAAAAADx/wUAAAAAAAAAAADx/wQAAAAAAAAAAADx/wMAAAAAAAAAAADx/wIAAAAAAAAAAADx/wEAAAAAAAAAAADx/wAAAAAAAAAAAADx////AAAAAAAAAADx//7/AAAAAAAAAADx//3/AAAAAAAAAADx//z/AAAAAAAAAADx//v/AAAAAAAAAADx//r/AAAAAAAAAADx//n/AAAAAAAAAADx//j/AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_rqqkd")
+
+[node name="Patasca" parent="." unique_id=239368157 instance=ExtResource("3_tuxke")]
+position = Vector2(45, -30)
+
+[node name="EnemySpawn" type="Node2D" parent="." unique_id=1403604962 node_paths=PackedStringArray("Nodo_entidades")]
+script = ExtResource("5_tktqm")
+Nodo_entidades = NodePath("../Entidades")
+_Enemigos = Array[PackedScene]([ExtResource("4_qqc4j")])
+
+[node name="Timer" type="Timer" parent="EnemySpawn" unique_id=167434207]
+
+[node name="Entidades" type="Node2D" parent="." unique_id=1827774021]
+
+[node name="Personaje" parent="Entidades" unique_id=1352873288 instance=ExtResource("1_rqqkd")]
+position = Vector2(70, 32)

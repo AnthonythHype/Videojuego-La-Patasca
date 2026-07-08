@@ -1,0 +1,230 @@
+[gd_scene format=3 uid="uid://bnv4dcdayx58s"]
+
+[ext_resource type="Script" uid="uid://24ks0gryngc5" path="res://interfax/pausa_fin_menu.gd" id="1_wj6go"]
+[ext_resource type="AudioStream" uid="uid://jqwrqyvlkgrk" path="res://interfax/Sonidos y musica/sonidos/Coffee1.wav" id="2_72owo"]
+[ext_resource type="Texture2D" uid="uid://ctooujvur6ma3" path="res://interfax/GUISprite.png" id="2_c4tlf"]
+[ext_resource type="Texture2D" uid="uid://cj6pe0kxs7gxf" path="res://interfax/imagenes/sopa.jpg" id="2_gw77g"]
+[ext_resource type="Texture2D" uid="uid://0wlnlylfhmqo" path="res://interfax/imagenes/entidad.jpg" id="3_abj6v"]
+[ext_resource type="AudioStream" uid="uid://7oqji81f7chx" path="res://interfax/Sonidos y musica/sonidos/Abstract1.wav" id="3_w7yye"]
+[ext_resource type="Texture2D" uid="uid://qd78bs0tug7o" path="res://interfax/imagenes/configuraciones.jpg" id="4_at36w"]
+[ext_resource type="Texture2D" uid="uid://dehspwd17v3vo" path="res://interfax/imagenes/salida.jpg" id="5_72owo"]
+[ext_resource type="PackedScene" uid="uid://dxju8sunwcnln" path="res://interfax/sistema_cofiguraciones.tscn" id="6_abj6v"]
+
+[sub_resource type="FontVariation" id="FontVariation_y6hcl"]
+spacing_glyph = 16
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4tlf"]
+atlas = ExtResource("2_c4tlf")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt5bs"]
+atlas = ExtResource("2_c4tlf")
+region = Rect2(96, 16, 16, 16)
+
+[node name="pausa_fin_menu" type="CanvasLayer" unique_id=919088606]
+process_mode = 3
+layer = 2
+script = ExtResource("1_wj6go")
+sonido = ExtResource("2_72owo")
+ui = ExtResource("3_w7yye")
+
+[node name="Control" type="Control" parent="." unique_id=867573704]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="fondo" type="ColorRect" parent="Control" unique_id=1446851596]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.19607843, 0, 0.27058825, 0.49019608)
+
+[node name="Text_Menu" type="ColorRect" parent="Control" unique_id=964650628]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 90.0
+grow_horizontal = 2
+color = Color(0.54901963, 0.043137256, 0, 0.67058825)
+
+[node name="sis_Pausa" type="Control" parent="Control" unique_id=974353403]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PausaText" type="Label" parent="Control/sis_Pausa" unique_id=1594700674]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.30800003
+anchor_right = 0.69200003
+anchor_bottom = 0.22200002
+offset_left = -0.36001587
+offset_top = -7.5999985
+offset_right = 0.35998535
+offset_bottom = -4.279999
+grow_horizontal = 2
+theme_override_fonts/font = SubResource("FontVariation_y6hcl")
+theme_override_font_sizes/font_size = 100
+text = "Pausa"
+
+[node name="GridContainer" type="GridContainer" parent="Control/sis_Pausa" unique_id=480421190]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.072000004
+anchor_top = 0.296
+anchor_right = 0.92100006
+anchor_bottom = 0.70400006
+offset_left = -0.2400055
+offset_top = -0.18000793
+offset_right = -0.32006836
+offset_bottom = 0.17996216
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 35
+theme_override_constants/v_separation = -100
+columns = 4
+
+[node name="img_continuar" type="TextureRect" parent="Control/sis_Pausa/GridContainer" unique_id=931461157]
+layout_mode = 2
+size_flags_horizontal = 15
+size_flags_vertical = 15
+texture = ExtResource("2_gw77g")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="img_reiniciar" type="TextureRect" parent="Control/sis_Pausa/GridContainer" unique_id=929416648]
+layout_mode = 2
+size_flags_horizontal = 15
+size_flags_vertical = 15
+texture = ExtResource("3_abj6v")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="img_configuraciones" type="TextureRect" parent="Control/sis_Pausa/GridContainer" unique_id=990106935]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 15
+size_flags_vertical = 15
+texture = ExtResource("4_at36w")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="img_salir" type="TextureRect" parent="Control/sis_Pausa/GridContainer" unique_id=1902439297]
+layout_mode = 2
+size_flags_horizontal = 15
+size_flags_vertical = 15
+texture = ExtResource("5_72owo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="button_continuar" type="Button" parent="Control/sis_Pausa/GridContainer" unique_id=507661458]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 0
+text = "Continuar"
+
+[node name="button_reiniciar" type="Button" parent="Control/sis_Pausa/GridContainer" unique_id=1517933333]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 0
+text = "Reiniciar"
+
+[node name="button_configuraciones" type="Button" parent="Control/sis_Pausa/GridContainer" unique_id=1543161871]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 0
+text = "Configuraciones"
+
+[node name="button_salir" type="Button" parent="Control/sis_Pausa/GridContainer" unique_id=1871355483]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 0
+text = "Salir"
+
+[node name="Sistema" parent="Control" unique_id=1992721262 instance=ExtResource("6_abj6v")]
+visible = false
+layout_mode = 1
+
+[node name="Salir" type="Control" parent="Control" unique_id=1094514695]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control/Salir" unique_id=397759354]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -390.25
+offset_top = -110.25
+offset_right = 390.25
+offset_bottom = 110.25
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12844211, 0, 0.0004173989, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Salir/ColorRect" unique_id=2017431339]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 46.25
+offset_top = 24.25
+offset_right = -46.25
+offset_bottom = -34.25
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Salirtext" type="Label" parent="Control/Salir/ColorRect/VBoxContainer" unique_id=148846028]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "¿Deseas Salir?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Salir/ColorRect/VBoxContainer" unique_id=571328772]
+layout_mode = 2
+size_flags_vertical = 10
+alignment = 1
+
+[node name="button_salir_p" type="Button" parent="Control/Salir/ColorRect/VBoxContainer/HBoxContainer" unique_id=2051962427]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Salir"
+icon = SubResource("AtlasTexture_c4tlf")
+
+[node name="button_cancelar_p" type="Button" parent="Control/Salir/ColorRect/VBoxContainer/HBoxContainer" unique_id=256566631]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancelar"
+icon = SubResource("AtlasTexture_tt5bs")
+
+[node name="pantalla" type="ColorRect" parent="." unique_id=1052799256]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+color = Color(0, 0, 0, 0)

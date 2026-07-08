@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dwwhyiux71uu7"]
+
+[ext_resource type="Script" uid="uid://cyas7fixihat1" path="res://Script/Patasca.gd" id="1_vkqpv"]
+[ext_resource type="Texture2D" uid="uid://bs2sty4jnb72w" path="res://Sprite/Test_Patasca.png" id="2_2e8m5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqpv"]
+size = Vector2(8.5, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2e8m5"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nqw5n"]
+radius = 10.891089
+
+[node name="Patasca" type="CharacterBody2D" unique_id=239368157]
+collision_layer = 4
+collision_mask = 9
+script = ExtResource("1_vkqpv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1372964643]
+shape = SubResource("RectangleShape2D_vkqpv")
+
+[node name="cuerpo_patasca" type="Area2D" parent="." unique_id=1396423342]
+collision_layer = 8
+collision_mask = 48
+
+[node name="cuerpo" type="CollisionShape2D" parent="cuerpo_patasca" unique_id=1195866909]
+shape = SubResource("CircleShape2D_2e8m5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=715635302]
+scale = Vector2(0.0107421875, 0.012054442)
+texture = ExtResource("2_2e8m5")
+
+[node name="area_segura" type="Area2D" parent="." unique_id=343943732]
+scale = Vector2(1.01, 1.01)
+collision_layer = 4
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area_segura" unique_id=408274121]
+modulate = Color(2.0398226, 0.9476867, 0, 1)
+shape = SubResource("CircleShape2D_nqw5n")
+debug_color = Color(0.84493935, 0.37911585, 0, 0.41960785)

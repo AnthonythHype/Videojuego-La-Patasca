@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://dy65uc26ebo50"]
+
+[ext_resource type="Texture2D" uid="uid://bvcyjxf6hrfdp" path="res://interfax/imagenes/CamScanner 20-06-2026 09.18_2.jpg" id="1_28t1g"]
+[ext_resource type="Script" uid="uid://delmnso1qr0x2" path="res://interfax/final_pantalla.gd" id="1_qo8l5"]
+[ext_resource type="Texture2D" uid="uid://b6c2sc5g7q4l7" path="res://interfax/imagenes/fin_3.png" id="2_h6ta7"]
+[ext_resource type="Texture2D" uid="uid://c1vp3lt5u1din" path="res://interfax/imagenes/fin_2.png" id="3_thx6t"]
+[ext_resource type="Texture2D" uid="uid://cob5rkin21n26" path="res://interfax/imagenes/fin_1.png" id="4_qo8l5"]
+
+[node name="Final_pantalla" type="CanvasLayer" unique_id=209781664]
+script = ExtResource("1_qo8l5")
+
+[node name="Fondo_final" type="Control" parent="." unique_id=1194641502]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="fondo" type="TextureRect" parent="Fondo_final" unique_id=586037542]
+modulate = Color(0.32915837, 0.3291584, 0.3291584, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_28t1g")
+expand_mode = 2
+
+[node name="text_continuar" type="Label" parent="Fondo_final" unique_id=86625634]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -103.5
+offset_top = -79.0
+offset_right = 103.5
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Pulse entre para continuar"
+
+[node name="variables" type="Control" parent="." unique_id=1504595887]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="variables" unique_id=361553621]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 296.0
+offset_top = 248.0
+offset_right = -298.0
+offset_bottom = -126.47827
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="variables/Panel" unique_id=1328508267]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_h6ta7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="variables/Panel" unique_id=1317613333]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -343.0
+offset_top = -2.7608643
+offset_right = -149.0
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(343, 3)
+texture = ExtResource("3_thx6t")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="variables/Panel" unique_id=1085558988]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -343.0
+offset_top = -2.7608643
+offset_right = -149.0
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(343, 3)
+texture = ExtResource("4_qo8l5")
+expand_mode = 1
+stretch_mode = 5

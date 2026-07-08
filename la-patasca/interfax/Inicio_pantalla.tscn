@@ -1,0 +1,220 @@
+[gd_scene format=3 uid="uid://cqvttf2hx5xku"]
+
+[ext_resource type="Script" uid="uid://cspiendsl3pnr" path="res://interfax/inicio_pantalla.gd" id="1_fqoyq"]
+[ext_resource type="Texture2D" uid="uid://bvcyjxf6hrfdp" path="res://interfax/imagenes/CamScanner 20-06-2026 09.18_2.jpg" id="1_mrfqn"]
+[ext_resource type="Texture2D" uid="uid://df1g27cw31go7" path="res://interfax/imagenes/ini_1.png" id="1_uo44d"]
+[ext_resource type="AudioStream" uid="uid://bgx3w7ssdg1cl" path="res://interfax/Sonidos y musica/2 Mind's Eye In.wav" id="2_c0emu"]
+[ext_resource type="AudioStream" uid="uid://b2y0g0tn7xnwo" path="res://interfax/Sonidos y musica/2 Mind's Eye Loop1.wav" id="2_jt3m7"]
+[ext_resource type="Texture2D" uid="uid://cnxc8luypuw6s" path="res://interfax/imagenes/ini_2.png" id="2_nt6r7"]
+[ext_resource type="AudioStream" uid="uid://jqwrqyvlkgrk" path="res://interfax/Sonidos y musica/sonidos/Coffee1.wav" id="3_c0emu"]
+[ext_resource type="Texture2D" uid="uid://dbnxgyn5yxwr8" path="res://interfax/imagenes/ini_3.png" id="3_mrfqn"]
+[ext_resource type="AudioStream" uid="uid://u4gvnni5qah5" path="res://interfax/Sonidos y musica/2 Mind's Eye Out.wav" id="4_iuv1h"]
+[ext_resource type="PackedScene" uid="uid://dxju8sunwcnln" path="res://interfax/sistema_cofiguraciones.tscn" id="6_idequ"]
+[ext_resource type="AudioStream" uid="uid://7oqji81f7chx" path="res://interfax/Sonidos y musica/sonidos/Abstract1.wav" id="6_uwjn3"]
+[ext_resource type="Texture2D" uid="uid://ctooujvur6ma3" path="res://interfax/GUISprite.png" id="7_idequ"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt3m7"]
+atlas = ExtResource("7_idequ")
+region = Rect2(96, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11d6p"]
+atlas = ExtResource("7_idequ")
+region = Rect2(96, 16, 16, 16)
+
+[node name="Control" type="CanvasLayer" unique_id=1534056283]
+script = ExtResource("1_fqoyq")
+Musica = Array[AudioStream]([ExtResource("2_c0emu"), ExtResource("2_jt3m7"), ExtResource("4_iuv1h")])
+sonido = ExtResource("3_c0emu")
+ui = ExtResource("6_uwjn3")
+
+[node name="Control" type="Control" parent="." unique_id=502851346]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=701154640]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mrfqn")
+expand_mode = 2
+
+[node name="Sistema_inicio" type="Control" parent="Control" unique_id=1950808451]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Sistema_inicio" unique_id=2032968932]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 90
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 90
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Sistema_inicio/MarginContainer" unique_id=1387074662]
+layout_mode = 2
+alignment = 1
+
+[node name="Button_inicio" type="TextureButton" parent="Control/Sistema_inicio/MarginContainer/VBoxContainer" unique_id=1299314021]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 7
+texture_normal = ExtResource("1_uo44d")
+ignore_texture_size = true
+stretch_mode = 5
+flip_h = true
+
+[node name="Label" type="Label" parent="Control/Sistema_inicio/MarginContainer/VBoxContainer/Button_inicio" unique_id=1365701997]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.384
+anchor_top = 0.6
+anchor_right = 0.586
+anchor_bottom = 0.777
+offset_left = -0.14399719
+offset_right = -0.12600708
+offset_bottom = -0.010002136
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Comenzar"
+
+[node name="Button_configuraciones" type="TextureButton" parent="Control/Sistema_inicio/MarginContainer/VBoxContainer" unique_id=576618830]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 7
+texture_normal = ExtResource("2_nt6r7")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/Sistema_inicio/MarginContainer/VBoxContainer/Button_configuraciones" unique_id=1874112350]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.349
+anchor_top = 0.6
+anchor_right = 0.62
+anchor_bottom = 0.777
+offset_left = 13.541
+offset_right = -13.419998
+offset_bottom = -0.010002136
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "configuracion"
+
+[node name="Button_salir" type="TextureButton" parent="Control/Sistema_inicio/MarginContainer/VBoxContainer" unique_id=1404179923]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 7
+texture_normal = ExtResource("3_mrfqn")
+ignore_texture_size = true
+stretch_mode = 5
+flip_h = true
+
+[node name="Label" type="Label" parent="Control/Sistema_inicio/MarginContainer/VBoxContainer/Button_salir" unique_id=191917248]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.223
+anchor_top = 0.53400004
+anchor_right = 0.31500003
+anchor_bottom = 0.711
+offset_left = -0.1930008
+offset_top = 0.04599762
+offset_right = -0.16500854
+offset_bottom = 0.035987854
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Salir"
+
+[node name="Sistema" parent="Control" unique_id=1992721262 instance=ExtResource("6_idequ")]
+visible = false
+layout_mode = 1
+offset_bottom = 49.0
+
+[node name="Salir" type="Control" parent="Control" unique_id=464048637]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control/Salir" unique_id=538583451]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -390.25
+offset_top = -110.25
+offset_right = 390.25
+offset_bottom = 110.25
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12844211, 0, 0.0004173989, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Salir/ColorRect" unique_id=1848240459]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 46.25
+offset_top = 24.25
+offset_right = -46.25
+offset_bottom = -34.25
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Salirtext" type="Label" parent="Control/Salir/ColorRect/VBoxContainer" unique_id=177466975]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "¿Deseas Salir?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Salir/ColorRect/VBoxContainer" unique_id=1646432965]
+layout_mode = 2
+size_flags_vertical = 10
+alignment = 1
+
+[node name="button_salir_p" type="Button" parent="Control/Salir/ColorRect/VBoxContainer/HBoxContainer" unique_id=820016996]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Salir"
+icon = SubResource("AtlasTexture_jt3m7")
+
+[node name="button_cancelar_p" type="Button" parent="Control/Salir/ColorRect/VBoxContainer/HBoxContainer" unique_id=5782745]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancelar"
+icon = SubResource("AtlasTexture_11d6p")
+
+[node name="pantalla" type="ColorRect" parent="Control" unique_id=1027468434]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+color = Color(0, 0, 0, 0)
