@@ -18,7 +18,8 @@ collision_layer = 8
 collision_mask = 8
 script = ExtResource("1_jyp6m")
 vida_entidad = 2
-velocidad = 50.0
+velocidad = 30.0
+distancia_minima = 15.0
 area2d = NodePath("Area_reaccion")
 
 [node name="Cuerpo_area" type="CollisionShape2D" parent="." unique_id=1397124769]

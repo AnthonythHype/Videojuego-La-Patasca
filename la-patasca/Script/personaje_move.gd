@@ -47,10 +47,10 @@ func _atacar():
 	atacar = true
 	#animaciones.play("atacar")
 	var tween = create_tween()
-	particulas.emitting = true
-	tween.tween_property(colicion_ataque, "disabled", false, 0.3)
-	tween.tween_property(colicion_ataque, "disabled", true, 0.1)
+	tween.tween_property(colicion_ataque, "disabled", false, 0.5)
 	await tween.finished
+	particulas.emitting = true
+	colicion_ataque.disabled = true
 	particulas.emitting = false
 	atacar = false
 

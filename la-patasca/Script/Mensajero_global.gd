@@ -10,4 +10,7 @@ signal Max_corazones( max_vida : int )
 signal Bar_patasca( barra : float , max_barra : float )
 
 @warning_ignore("unused_signal")
+signal puntuacion_total(puntos: int)
+
+@warning_ignore("unused_signal")
 signal volver()

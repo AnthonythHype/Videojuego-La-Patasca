@@ -55,6 +55,6 @@ func _on_toggled(toggled_on: bool) -> void:
 		sfx_audio.play()
 
 func _on_item_selected(index: int) -> void:
-	var items = []
+	var items = [index]
 	sfx_audio.play()
 	

@@ -473,7 +473,7 @@ debug_color = Color(3.465414e-06, 0.5901116, 0.8879478, 0.41960785)
 
 [node name="Area_accion" type="Area2D" parent="." unique_id=348750550]
 collision_layer = 16
-collision_mask = 8
+collision_mask = 12
 script = ExtResource("5_fj443")
 "tamaño" = 25.0
 tipo = "Empuje"

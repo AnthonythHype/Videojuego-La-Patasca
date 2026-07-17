@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bbds0ddq5i818"]
+
+[ext_resource type="Script" uid="uid://ct21wpynvrk0i" path="res://Script/enemy_spawn.gd" id="1_ves01"]
+[ext_resource type="PackedScene" uid="uid://bjcrhgraixowl" path="res://Escenas/Entidad_test.tscn" id="2_nkwkh"]
+
+[node name="Enemy_Spawn" type="Node2D" unique_id=1838097189]
+script = ExtResource("1_ves01")
+_Enemigos = Array[PackedScene]([ExtResource("2_nkwkh")])
+
+[node name="Timer" type="Timer" parent="." unique_id=111864146]

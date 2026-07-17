@@ -1,13 +1,14 @@
 extends Node2D
 
 #Emenigos en array para poder añadirlos en una lista
-@export var Nodo_entidades: Node
+@export var Nodo_entidades: Node2D
 @export var _Enemigos: Array[PackedScene]
 var enemigo_instanciado = Node
 var Enemigo_ins: int = randi_range(0, _Enemigos.size())
 
 #timer de spawn de enemigo
-@export var timer: Timer
+@onready var timer: Timer = $Timer
+
 var delta = 1
 var offset = 0.5
 

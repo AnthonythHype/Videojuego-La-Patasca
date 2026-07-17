@@ -7,7 +7,7 @@ class_name Entidad extends CharacterBody2D
 @onready var Patasca: Node2D = get_tree().get_first_node_in_group("Patasca")
 @export var area2d: Area2D
 #variables de estados
-enum STATE {movimiento,atagar,huir,dash}
+enum STATE {movimiento,atagar,huir,dash,empujado}
 var current_state:STATE = STATE.movimiento
 var huir: bool = false
 var tiempo_espera: float = randf_range(10, 50)

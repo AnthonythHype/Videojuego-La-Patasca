@@ -1,14 +1,15 @@
 [gd_scene format=4 uid="uid://epw7uwf35rpn"]
 
+[ext_resource type="Script" uid="uid://bhjb0m2ys15ac" path="res://Script/mundo_general.gd" id="1_n1g0h"]
 [ext_resource type="PackedScene" uid="uid://ctmioe70d20fe" path="res://Escenas/Personaje.tscn" id="1_rqqkd"]
+[ext_resource type="PackedScene" uid="uid://bbds0ddq5i818" path="res://Escenas/enemy_spawn.tscn" id="2_dv4ul"]
 [ext_resource type="Texture2D" uid="uid://bimmy40q0j3v0" path="res://Sprite/test_bloque.png" id="2_n165g"]
 [ext_resource type="PackedScene" uid="uid://dwwhyiux71uu7" path="res://Escenas/Patasca.tscn" id="3_tuxke"]
-[ext_resource type="PackedScene" uid="uid://bjcrhgraixowl" path="res://Escenas/Entidad_test.tscn" id="4_qqc4j"]
-[ext_resource type="Script" uid="uid://ct21wpynvrk0i" path="res://Script/enemy_spawn.gd" id="5_tktqm"]
 [ext_resource type="Texture2D" uid="uid://cj6pe0kxs7gxf" path="res://interfax/imagenes/sopa.jpg" id="6_n1g0h"]
 [ext_resource type="Texture2D" uid="uid://0wlnlylfhmqo" path="res://interfax/imagenes/entidad.jpg" id="7_7dnrs"]
 [ext_resource type="Texture2D" uid="uid://qd78bs0tug7o" path="res://interfax/imagenes/configuraciones.jpg" id="8_lsfpk"]
 [ext_resource type="Texture2D" uid="uid://dehspwd17v3vo" path="res://interfax/imagenes/salida.jpg" id="9_gqmtc"]
+[ext_resource type="PackedScene" uid="uid://bjcrhgraixowl" path="res://Escenas/Entidad_test.tscn" id="10_7dnrs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tuxke"]
 texture = ExtResource("2_n165g")
@@ -21,18 +22,14 @@ physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_tuxke")
 
 [node name="escenarioTest" type="Node2D" unique_id=517493756]
+script = ExtResource("1_n1g0h")
 
 [node name="TileMap" type="TileMapLayer" parent="." unique_id=1791674850]
 tile_map_data = PackedByteArray("AAD4/wMAAAAAAAAAAAD5/wMAAAAAAAAAAAD4/wIAAAAAAAAAAAD5/wIAAAAAAAAAAAD5/wQAAAAAAAAAAAD4/wQAAAAAAAAAAAD4//z/AAAAAAAAAAD5//z/AAAAAAAAAAD5//v/AAAAAAAAAAD4//v/AAAAAAAAAAAHAAUAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAGAPr/AAAAAAAAAAAHAPr/AAAAAAAAAAAHAPv/AAAAAAAAAAAGAPv/AAAAAAAAAADx//f/AAAAAAAAAADy//f/AAAAAAAAAADz//f/AAAAAAAAAAD0//f/AAAAAAAAAAD1//f/AAAAAAAAAAD2//f/AAAAAAAAAAD3//f/AAAAAAAAAAD4//f/AAAAAAAAAAD5//f/AAAAAAAAAAD6//f/AAAAAAAAAAD7//f/AAAAAAAAAAD8//f/AAAAAAAAAAD9//f/AAAAAAAAAAD+//f/AAAAAAAAAAD///f/AAAAAAAAAAAAAPf/AAAAAAAAAAABAPf/AAAAAAAAAAACAPf/AAAAAAAAAAADAPf/AAAAAAAAAAAEAPf/AAAAAAAAAAAFAPf/AAAAAAAAAAAGAPf/AAAAAAAAAAAHAPf/AAAAAAAAAAAIAPf/AAAAAAAAAAAJAPf/AAAAAAAAAAAKAPf/AAAAAAAAAAALAPf/AAAAAAAAAAAMAPf/AAAAAAAAAAANAPf/AAAAAAAAAAAOAPf/AAAAAAAAAAAOAPj/AAAAAAAAAAAOAPn/AAAAAAAAAAAOAPr/AAAAAAAAAAAOAPv/AAAAAAAAAAAOAPz/AAAAAAAAAAAOAP3/AAAAAAAAAAAOAP7/AAAAAAAAAAAOAP//AAAAAAAAAAAOAAAAAAAAAAAAAAAOAAEAAAAAAAAAAAAOAAIAAAAAAAAAAAAOAAMAAAAAAAAAAAAOAAQAAAAAAAAAAAAOAAUAAAAAAAAAAAAOAAYAAAAAAAAAAAAOAAcAAAAAAAAAAAAOAAgAAAAAAAAAAAANAAgAAAAAAAAAAAAMAAgAAAAAAAAAAAALAAgAAAAAAAAAAAAKAAgAAAAAAAAAAAAJAAgAAAAAAAAAAAAIAAgAAAAAAAAAAAAHAAgAAAAAAAAAAAAGAAgAAAAAAAAAAAAFAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAD//wgAAAAAAAAAAAAAAAgAAAAAAAAAAAABAAgAAAAAAAAAAAADAAgAAAAAAAAAAAACAAgAAAAAAAAAAAD+/wgAAAAAAAAAAAD9/wgAAAAAAAAAAAD8/wgAAAAAAAAAAAD7/wgAAAAAAAAAAAD6/wgAAAAAAAAAAAD5/wgAAAAAAAAAAAD4/wgAAAAAAAAAAAD3/wgAAAAAAAAAAAD2/wgAAAAAAAAAAAD1/wgAAAAAAAAAAAD0/wgAAAAAAAAAAADz/wgAAAAAAAAAAADy/wgAAAAAAAAAAADx/wgAAAAAAAAAAADx/wcAAAAAAAAAAADx/wYAAAAAAAAAAADx/wUAAAAAAAAAAADx/wQAAAAAAAAAAADx/wMAAAAAAAAAAADx/wIAAAAAAAAAAADx/wEAAAAAAAAAAADx/wAAAAAAAAAAAADx////AAAAAAAAAADx//7/AAAAAAAAAADx//3/AAAAAAAAAADx//z/AAAAAAAAAADx//v/AAAAAAAAAADx//r/AAAAAAAAAADx//n/AAAAAAAAAADx//j/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_rqqkd")
 
-[node name="EnemySpawn" type="Node2D" parent="." unique_id=1403604962 node_paths=PackedStringArray("Nodo_entidades", "timer")]
-script = ExtResource("5_tktqm")
+[node name="Enemy_Spawn" parent="." unique_id=1838097189 node_paths=PackedStringArray("Nodo_entidades") instance=ExtResource("2_dv4ul")]
 Nodo_entidades = NodePath("../Entidades")
-_Enemigos = Array[PackedScene]([ExtResource("4_qqc4j")])
-timer = NodePath("Timer")
-
-[node name="Timer" type="Timer" parent="EnemySpawn" unique_id=167434207]
 
 [node name="Entidades" type="Node2D" parent="." unique_id=1827774021]
 
@@ -133,3 +130,6 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_vertical = 14
 text = "Salir"
+
+[node name="Entidad_test" parent="." unique_id=1461444522 instance=ExtResource("10_7dnrs")]
+position = Vector2(-56, 35)

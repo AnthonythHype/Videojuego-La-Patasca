@@ -17,7 +17,7 @@ func _process(delta):
 
 func area_patasca(delta):
 	if aumento == true:
-		_aumento(delta)
+		_aumento()
 	if area_segura.scale.x > tamaño_minimo:
 		var nueva_escala = area_segura.scale - Vector2(velocidad_disminucion, velocidad_disminucion) * delta
 			# Evita que sea menor que el mínimo
@@ -29,7 +29,7 @@ func area_patasca(delta):
 			area_segura.scale += Vector2(1, 1) * delta
 
 
-func _aumento(delta):
+func _aumento():
 	var nueva_escala = Vector2(5, 5)
 	# Evita que sea menor que el mínimo
 	nueva_escala.x = clamp(nueva_escala.x, tamaño_minimo, tamaño_maximo)
