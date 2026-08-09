@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dy65uc26ebo50"]
 
 [ext_resource type="Texture2D" uid="uid://bvcyjxf6hrfdp" path="res://interfax/imagenes/CamScanner 20-06-2026 09.18_2.jpg" id="1_28t1g"]
-[ext_resource type="Script" uid="uid://delmnso1qr0x2" path="res://interfax/final_pantalla.gd" id="1_qo8l5"]
+[ext_resource type="Script" uid="uid://delmnso1qr0x2" path="res://interfax/Script/final_pantalla.gd" id="1_qo8l5"]
 [ext_resource type="Texture2D" uid="uid://b6c2sc5g7q4l7" path="res://interfax/imagenes/fin_3.png" id="2_h6ta7"]
 [ext_resource type="Texture2D" uid="uid://c1vp3lt5u1din" path="res://interfax/imagenes/fin_2.png" id="3_thx6t"]
 [ext_resource type="Texture2D" uid="uid://cob5rkin21n26" path="res://interfax/imagenes/fin_1.png" id="4_qo8l5"]

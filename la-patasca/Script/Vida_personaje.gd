@@ -1,5 +1,4 @@
 class_name Player extends CharacterBody2D 
-signal muerte
 @export var daño = 1
 @export var max_vida: int = 3 :
 	set( value ):
@@ -23,6 +22,5 @@ func tomar_daño():
 		dead()
 
 func dead():
-	muerte.emit()
-	print("muerto")
+	MensajeroGlobal.muerte.emit()
 	#get_parent().queue_free()

@@ -29,6 +29,7 @@ func _ready() -> void:
 	resolucion_button.item_selected.connect( _on_item_selected )
 	
 	button_volver.pressed.connect( volver_inicio )
+	
 
 func volver_inicio():
 	MensajeroGlobal.volver.emit()
@@ -49,9 +50,11 @@ func _on_ui_slider_value_changed(value: float) -> void:
 func _on_toggled(toggled_on: bool) -> void:
 	if toggled_on == true:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		resolucion_button.flat = false
 		sfx_audio.play()
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		resolucion_button.flat = true
 		sfx_audio.play()
 
 func _on_item_selected(index: int) -> void:

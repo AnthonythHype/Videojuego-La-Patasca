@@ -1,7 +1,7 @@
 extends Control
 @export var corazon_null: Texture2D
 @export var corazon_full: Texture2D
-var corazon = preload("res://interfax/Corazones.tscn")
+var corazon = preload("res://interfax/Escenarios/Corazones.tscn")
 var j = 5
 func _ready() -> void:
 	MensajeroGlobal.Max_corazones.connect(Maximo_corazones)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cqvttf2hx5xku"]
 
-[ext_resource type="Script" uid="uid://cspiendsl3pnr" path="res://interfax/inicio_pantalla.gd" id="1_fqoyq"]
+[ext_resource type="Script" uid="uid://cspiendsl3pnr" path="res://interfax/Script/inicio_pantalla.gd" id="1_fqoyq"]
 [ext_resource type="Texture2D" uid="uid://bvcyjxf6hrfdp" path="res://interfax/imagenes/CamScanner 20-06-2026 09.18_2.jpg" id="1_mrfqn"]
 [ext_resource type="Texture2D" uid="uid://df1g27cw31go7" path="res://interfax/imagenes/ini_1.png" id="1_uo44d"]
 [ext_resource type="AudioStream" uid="uid://bgx3w7ssdg1cl" path="res://interfax/Sonidos y musica/2 Mind's Eye In.wav" id="2_c0emu"]
@@ -9,9 +9,9 @@
 [ext_resource type="AudioStream" uid="uid://jqwrqyvlkgrk" path="res://interfax/Sonidos y musica/sonidos/Coffee1.wav" id="3_c0emu"]
 [ext_resource type="Texture2D" uid="uid://dbnxgyn5yxwr8" path="res://interfax/imagenes/ini_3.png" id="3_mrfqn"]
 [ext_resource type="AudioStream" uid="uid://u4gvnni5qah5" path="res://interfax/Sonidos y musica/2 Mind's Eye Out.wav" id="4_iuv1h"]
-[ext_resource type="PackedScene" uid="uid://dxju8sunwcnln" path="res://interfax/sistema_cofiguraciones.tscn" id="6_idequ"]
+[ext_resource type="PackedScene" uid="uid://dxju8sunwcnln" path="res://interfax/Escenarios/sistema_cofiguraciones.tscn" id="6_idequ"]
 [ext_resource type="AudioStream" uid="uid://7oqji81f7chx" path="res://interfax/Sonidos y musica/sonidos/Abstract1.wav" id="6_uwjn3"]
-[ext_resource type="Texture2D" uid="uid://ctooujvur6ma3" path="res://interfax/GUISprite.png" id="7_idequ"]
+[ext_resource type="Texture2D" uid="uid://ctooujvur6ma3" path="res://interfax/imagenes/GUISprite.png" id="7_idequ"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jt3m7"]
 atlas = ExtResource("7_idequ")

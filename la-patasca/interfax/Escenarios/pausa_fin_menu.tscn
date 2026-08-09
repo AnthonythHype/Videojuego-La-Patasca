@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://bnv4dcdayx58s"]
 
-[ext_resource type="Script" uid="uid://24ks0gryngc5" path="res://interfax/pausa_fin_menu.gd" id="1_wj6go"]
+[ext_resource type="Script" uid="uid://24ks0gryngc5" path="res://interfax/Script/pausa_fin_menu.gd" id="1_wj6go"]
 [ext_resource type="AudioStream" uid="uid://jqwrqyvlkgrk" path="res://interfax/Sonidos y musica/sonidos/Coffee1.wav" id="2_72owo"]
-[ext_resource type="Texture2D" uid="uid://ctooujvur6ma3" path="res://interfax/GUISprite.png" id="2_c4tlf"]
+[ext_resource type="Texture2D" uid="uid://ctooujvur6ma3" path="res://interfax/imagenes/GUISprite.png" id="2_c4tlf"]
 [ext_resource type="Texture2D" uid="uid://cj6pe0kxs7gxf" path="res://interfax/imagenes/sopa.jpg" id="2_gw77g"]
 [ext_resource type="Texture2D" uid="uid://0wlnlylfhmqo" path="res://interfax/imagenes/entidad.jpg" id="3_abj6v"]
 [ext_resource type="AudioStream" uid="uid://7oqji81f7chx" path="res://interfax/Sonidos y musica/sonidos/Abstract1.wav" id="3_w7yye"]
 [ext_resource type="Texture2D" uid="uid://qd78bs0tug7o" path="res://interfax/imagenes/configuraciones.jpg" id="4_at36w"]
 [ext_resource type="Texture2D" uid="uid://dehspwd17v3vo" path="res://interfax/imagenes/salida.jpg" id="5_72owo"]
-[ext_resource type="PackedScene" uid="uid://dxju8sunwcnln" path="res://interfax/sistema_cofiguraciones.tscn" id="6_abj6v"]
+[ext_resource type="PackedScene" uid="uid://dxju8sunwcnln" path="res://interfax/Escenarios/sistema_cofiguraciones.tscn" id="6_abj6v"]
 
 [sub_resource type="FontVariation" id="FontVariation_y6hcl"]
 spacing_glyph = 16

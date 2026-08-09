@@ -40,3 +40,11 @@ collision_mask = 9
 modulate = Color(2.0398226, 0.9476867, 0, 1)
 shape = SubResource("CircleShape2D_nqw5n")
 debug_color = Color(0.84493935, 0.37911585, 0, 0.41960785)
+
+[node name="ColorRect" type="ColorRect" parent="area_segura" unique_id=1087068050]
+visible = false
+offset_left = -8.910892
+offset_top = -8.910892
+offset_right = 9.9009905
+offset_bottom = 8.910892
+color = Color(1, 1, 1, 0.21176471)

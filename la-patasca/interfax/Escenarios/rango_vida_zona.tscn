@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://ygrf5cfx2c18"]
 
-[ext_resource type="Script" uid="uid://bdl22ja17lcik" path="res://interfax/UI_patasca.gd" id="1_1ebrk"]
-[ext_resource type="Script" uid="uid://chfec5w3bcgnj" path="res://interfax/UI_vida_jugador.gd" id="1_mcmf2"]
-[ext_resource type="Texture2D" uid="uid://ctooujvur6ma3" path="res://interfax/GUISprite.png" id="1_xx43s"]
+[ext_resource type="Script" uid="uid://bdl22ja17lcik" path="res://interfax/Script/UI_patasca.gd" id="1_sqkau"]
+[ext_resource type="Texture2D" uid="uid://ctooujvur6ma3" path="res://interfax/imagenes/GUISprite.png" id="2_vl8sc"]
+[ext_resource type="Script" uid="uid://chfec5w3bcgnj" path="res://interfax/Script/UI_vida_jugador.gd" id="3_qtk2j"]
+[ext_resource type="Script" uid="uid://bjegp4y6yc5nj" path="res://interfax/Script/UI_puntuacion.gd" id="4_51eck"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k0y7s"]
-atlas = ExtResource("1_xx43s")
+atlas = ExtResource("2_vl8sc")
 region = Rect2(16, 112, 64, 16)
 
 [sub_resource type="Gradient" id="Gradient_mcmf2"]
@@ -22,11 +23,11 @@ colors = PackedColorArray(0.8, 1, 0, 1, 0.93333334, 0.34509805, 0, 1, 0, 0.46001
 gradient = SubResource("Gradient_kdp1j")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mcmf2"]
-atlas = ExtResource("1_xx43s")
+atlas = ExtResource("2_vl8sc")
 region = Rect2(64, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ebrk"]
-atlas = ExtResource("1_xx43s")
+atlas = ExtResource("2_vl8sc")
 region = Rect2(16, 16, 16, 16)
 
 [node name="UI_vida_bar" type="CanvasLayer" unique_id=1174858941]
@@ -39,7 +40,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=2077087019]
+[node name="Patasca" type="MarginContainer" parent="Control" unique_id=2077087019]
 custom_minimum_size = Vector2(64, 16)
 layout_mode = 1
 anchors_preset = 2
@@ -51,9 +52,9 @@ offset_right = 89.00037
 offset_bottom = -67.0
 grow_vertical = 0
 scale = Vector2(4.01, 4.01)
-script = ExtResource("1_1ebrk")
+script = ExtResource("1_sqkau")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Control/MarginContainer" unique_id=1966301081]
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/Patasca" unique_id=1966301081]
 custom_minimum_size = Vector2(64, 16)
 layout_mode = 2
 texture = SubResource("AtlasTexture_k0y7s")
@@ -62,7 +63,7 @@ patch_margin_left = 32
 patch_margin_right = 8
 axis_stretch_horizontal = 1
 
-[node name="zonaS" type="TextureProgressBar" parent="Control/MarginContainer/NinePatchRect" unique_id=1686607600]
+[node name="zonaS" type="TextureProgressBar" parent="Control/Patasca/NinePatchRect" unique_id=1686607600]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -79,7 +80,7 @@ nine_patch_stretch = true
 texture_under = SubResource("GradientTexture1D_1ebrk")
 texture_progress = SubResource("GradientTexture1D_xvl6i")
 
-[node name="MarginContainer2" type="MarginContainer" parent="Control" unique_id=316494477]
+[node name="Corazones" type="MarginContainer" parent="Control" unique_id=316494477]
 custom_minimum_size = Vector2(64, 16)
 layout_mode = 0
 offset_left = 30.0
@@ -88,8 +89,30 @@ offset_right = 94.0
 offset_bottom = 31.0
 scale = Vector2(3, 3)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer2" unique_id=317994442]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Corazones" unique_id=317994442]
 layout_mode = 2
-script = ExtResource("1_mcmf2")
+script = ExtResource("3_qtk2j")
 corazon_null = SubResource("AtlasTexture_mcmf2")
 corazon_full = SubResource("AtlasTexture_1ebrk")
+
+[node name="Puntuacion" type="MarginContainer" parent="Control" unique_id=1548589140]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -166.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 64.0
+grow_horizontal = 0
+script = ExtResource("4_51eck")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Puntuacion" unique_id=645252616]
+layout_mode = 2
+
+[node name="text_puntos" type="Label" parent="Control/Puntuacion/HBoxContainer" unique_id=629948840]
+layout_mode = 2
+text = "Puntos"
+
+[node name="text_numero" type="Label" parent="Control/Puntuacion/HBoxContainer" unique_id=1143825564]
+layout_mode = 2

@@ -1,16 +1,30 @@
 extends Node
 
+#mensajero para conectar vida_jugador a UI_vida_jugador
 @warning_ignore("unused_signal")
 signal Cambio_vida( vida : int )
 
+#mensajero para conectar de Maxima_vida_jugador a cantidad de corazones del UI
 @warning_ignore("unused_signal")
 signal Max_corazones( max_vida : int )
 
+#mensajero para conectar el area/calor de la patasca a la barra_UI_zona_segura
 @warning_ignore("unused_signal")
 signal Bar_patasca( barra : float , max_barra : float )
 
+#mensajero para conectar la puntuacion total de puntuacion de pantalla final
 @warning_ignore("unused_signal")
 signal puntuacion_total(puntos: int)
+#puntos de los enemigos
+@warning_ignore("unused_signal")
+signal puntos(puntos: int)
 
+#mensaje de muerte del personaje
+@warning_ignore("unused_signal")
+signal muerte()
+
+#mensajero para conectar el boton de volver del mennu de configuraciones
+#esta diseñado porque no esta funcionando el boton por si solo, 
+#sinque  necesite entrar al otro lado
 @warning_ignore("unused_signal")
 signal volver()

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dtxrausekdw2d" path="res://Sprite/test_entidad.png" id="1_50a3w"]
 [ext_resource type="Script" uid="uid://cspb012kfmro4" path="res://Script/entidad_test.gd" id="1_jyp6m"]
-[ext_resource type="Script" uid="uid://cwhaa8amlqsg1" path="res://Escenas/Accion.gd" id="3_imt58"]
+[ext_resource type="Script" uid="uid://cwhaa8amlqsg1" path="res://Script/Accion.gd" id="3_imt58"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jyp6m"]
 radius = 6.0
@@ -19,8 +19,9 @@ collision_mask = 8
 script = ExtResource("1_jyp6m")
 vida_entidad = 2
 velocidad = 30.0
-distancia_minima = 15.0
+distancia_minima = 25.0
 area2d = NodePath("Area_reaccion")
+Fuerza_empuje = 15
 
 [node name="Cuerpo_area" type="CollisionShape2D" parent="." unique_id=1397124769]
 light_mask = 0
@@ -43,8 +44,15 @@ collision_layer = 8
 collision_mask = 48
 script = ExtResource("3_imt58")
 "tamaño" = 10.0
-tipo = "Ataque"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_accion" unique_id=356209872]
+[node name="Colicion_ataque" type="CollisionShape2D" parent="Area_accion" unique_id=356209872]
 shape = SubResource("CircleShape2D_uut0w")
 disabled = true
+
+[node name="ColorRect" type="ColorRect" parent="Area_accion" unique_id=745156237]
+visible = false
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 7.0
+offset_bottom = 7.0
+color = Color(0.95686275, 0, 0.1764706, 0.26666668)

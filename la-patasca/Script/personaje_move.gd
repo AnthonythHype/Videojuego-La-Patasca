@@ -11,6 +11,8 @@ var atacar: bool = false
 @onready var particulas: GPUParticles2D = $Area_accion/Particulas
 @onready var colicion_ataque: CollisionShape2D = $Area_accion/Colicion_ataque
 
+@onready var color_rect: ColorRect = $Area_accion/ColorRect
+
 func _ready():
 	add_to_group("Personaje")
 	area2d.area_entered.connect(_on_area_2d_area_entered)
@@ -33,6 +35,7 @@ func _physics_process(delta: float):
 	#ataque del personaje
 	if Input.is_action_pressed( "atacar" ):
 		_atacar()
+		_animaciones_ataque(direccion)
 	
 	if !atacar:
 		_animaciones(direccion)
@@ -47,8 +50,10 @@ func _atacar():
 	atacar = true
 	#animaciones.play("atacar")
 	var tween = create_tween()
+	color_rect.visible = true
 	tween.tween_property(colicion_ataque, "disabled", false, 0.5)
 	await tween.finished
+	color_rect.visible = false
 	particulas.emitting = true
 	colicion_ataque.disabled = true
 	particulas.emitting = false
@@ -91,3 +96,16 @@ func _animaciones(direction):
 				animaciones.play("Idle_DRL")
 			"Move_D":
 				animaciones.play("Idle_D")
+
+func _animaciones_ataque(direction):
+	if abs(direction.x) == 1:
+		animaciones.play("Atack_RL")
+	elif abs(direction.x) >= 0.5 and direction.y <= -0.5:
+		animaciones.play("Atack_URL")
+	elif abs(direction.x) == 0 and direction.y == -1:
+		animaciones.play("Atack_U")
+	elif abs(direction.x) >= 0.5 and direction.y >= -0.5:
+		animaciones.play("Atack_DRL")
+	elif abs(direction.x) == 0 and direction.y == 1:
+		animaciones.play("Atack_D")
+	

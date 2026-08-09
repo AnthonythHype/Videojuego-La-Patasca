@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dxju8sunwcnln"]
 
-[ext_resource type="Script" uid="uid://bnt3nvtevxgdp" path="res://interfax/sistema_cofiguraciones.gd" id="1_0jepb"]
+[ext_resource type="Script" uid="uid://bnt3nvtevxgdp" path="res://interfax/Script/sistema_cofiguraciones.gd" id="1_0jepb"]
 [ext_resource type="AudioStream" uid="uid://jqwrqyvlkgrk" path="res://interfax/Sonidos y musica/sonidos/Coffee1.wav" id="2_wv853"]
 
 [sub_resource type="FontVariation" id="FontVariation_y6hcl"]
@@ -27,6 +27,7 @@ offset_top = -82.0
 offset_right = 162.5
 offset_bottom = 55.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_y6hcl")
 theme_override_font_sizes/font_size = 100
 text = "Menu"
@@ -44,6 +45,7 @@ grow_horizontal = 2
 
 [node name="AudioText" type="Label" parent="Box_sistema" unique_id=852819935]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 35
 text = "Audio"
 
@@ -54,6 +56,7 @@ size_flags_vertical = 4
 [node name="Musica" type="Label" parent="Box_sistema/HBoxMusica" unique_id=2108386808]
 custom_minimum_size = Vector2(15.795, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "Música........................"
 
@@ -73,6 +76,7 @@ size_flags_vertical = 4
 [node name="SFX" type="Label" parent="Box_sistema/HBoxSFX" unique_id=431364665]
 custom_minimum_size = Vector2(15.795, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "SFX.............................."
 
@@ -92,6 +96,7 @@ size_flags_vertical = 4
 [node name="UI" type="Label" parent="Box_sistema/HBoxUI" unique_id=1560195704]
 custom_minimum_size = Vector2(15.795, 0)
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "UI................................"
 
@@ -106,6 +111,7 @@ value = 0.5
 
 [node name="ResolucionText" type="Label" parent="Box_sistema" unique_id=510340416]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 35
 text = "Resolucion"
 
@@ -114,6 +120,7 @@ layout_mode = 2
 
 [node name="text_fullscreen" type="Label" parent="Box_sistema/HBoxContainer2" unique_id=768250091]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = "Pantalla completa................................................"
 
@@ -126,12 +133,14 @@ layout_mode = 2
 
 [node name="text_resolution" type="Label" parent="Box_sistema/HBoxContainer" unique_id=462777589]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 25
 text = " >>Tamaño.................................................."
 
 [node name="resolucionButton" type="OptionButton" parent="Box_sistema/HBoxContainer" unique_id=735874092]
 layout_mode = 2
 size_flags_horizontal = 3
+flat = true
 item_count = 1
 popup/item_0/id = 0
 

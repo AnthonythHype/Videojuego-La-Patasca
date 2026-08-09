@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctooujvur6ma3"
-path="res://.godot/imported/GUISprite.png-0f3c5fd17e0cdd94c4486b650be6b5fe.ctex"
+uid="uid://gp8r3sikgotg"
+path="res://.godot/imported/16x16 Attack-Sheet.png-ce457b95ea4a27df1d4daeb43e1d16db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://interfax/GUISprite.png"
-dest_files=["res://.godot/imported/GUISprite.png-0f3c5fd17e0cdd94c4486b650be6b5fe.ctex"]
+source_file="res://Sprite/16x16 Attack-Sheet.png"
+dest_files=["res://.godot/imported/16x16 Attack-Sheet.png-ce457b95ea4a27df1d4daeb43e1d16db.ctex"]
 
 [params]
 
