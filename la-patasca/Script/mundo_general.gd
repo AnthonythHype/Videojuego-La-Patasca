@@ -22,6 +22,7 @@ func crear_pantalla_final():
 	var final = pantalla_final.instantiate()
 	self.add_child(final)
 	MensajeroGlobal.puntuacion_total.emit(puntuacion)
+	MensajeroGlobal.reinicio_nivel.emit()
 
 func _unhandled_input( event: InputEvent ) -> void:
 	#inicio de pausa

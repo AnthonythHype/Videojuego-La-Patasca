@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cyas7fixihat1" path="res://Script/Patasca.gd" id="1_vkqpv"]
 [ext_resource type="Texture2D" uid="uid://bs2sty4jnb72w" path="res://Sprite/Test_Patasca.png" id="2_2e8m5"]
+[ext_resource type="Texture2D" uid="uid://dhc34g8jpxs7p" path="res://Sprite/2d_lights_and_shadows_neutral_point_light.webp" id="3_2e8m5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqpv"]
 size = Vector2(8.5, 8)
@@ -32,7 +33,7 @@ scale = Vector2(0.0107421875, 0.012054442)
 texture = ExtResource("2_2e8m5")
 
 [node name="area_segura" type="Area2D" parent="." unique_id=343943732]
-scale = Vector2(1.01, 1.01)
+scale = Vector2(20, 20)
 collision_layer = 4
 collision_mask = 9
 
@@ -48,3 +49,8 @@ offset_top = -8.910892
 offset_right = 9.9009905
 offset_bottom = 8.910892
 color = Color(1, 1, 1, 0.21176471)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1080178359]
+color = Color(1, 0.5403285, 0.23050547, 1)
+texture = ExtResource("3_2e8m5")
+texture_scale = 2.0

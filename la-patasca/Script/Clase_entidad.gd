@@ -19,6 +19,7 @@ var huir: bool = false #swith de huida
 var tiempo_espera: float = randf_range(10, 50) #tiempor de espera de un estado (huir)
 var direccion: Vector2 #direccion de movimiento
 var ataco = false
+var empujado = false
 #fuerza de empuje
 @export var Fuerza_empuje: int
 
@@ -38,11 +39,9 @@ func seguir_jugador() -> Vector2:
 		return j
 	else:
 		#timer += delta*10 
-		if ataco == true:
-			current_state = STATE.atagar
+		if ataco == false:
 			ataco = true
-		else:
-			ataco = false
+			current_state = STATE.atagar
 		return Vector2.ZERO
 
 func herido(daño: int, vida_actual: int):
@@ -73,5 +72,17 @@ func empuje_enemigo(velocidad_empuje):
 	# Cuanto más alto sea "knockback_friction", más rápido frena.
 	var tween = create_tween()
 	tween.tween_property(self, "velocity", velocidad_empuje, 0.1).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	empujado = false
 	tween.finished.connect(func(): current_state = STATE.movimiento)
  
+@onready var color_rect: ColorRect = $Area_accion/ColorRect
+func ataque():
+	var tween = create_tween().set_parallel()
+	if ataco == true: 
+		tween.tween_property(color_rect, "visible", true, 1) #color_rect.visible = true
+		tween.tween_property(colicion_ataque, "disabled", false, 0.5).set_trans(Tween.TRANS_EXPO)
+		await tween.finished
+		color_rect.visible = false
+		colicion_ataque.disabled = true
+		ataco = false
+	current_state = STATE.movimiento

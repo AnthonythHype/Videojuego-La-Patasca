@@ -12,8 +12,10 @@ var atacar: bool = false
 @onready var colicion_ataque: CollisionShape2D = $Area_accion/Colicion_ataque
 
 @onready var color_rect: ColorRect = $Area_accion/ColorRect
+#@onready var area_accion: Area2D = $Area_accion
 
 func _ready():
+	#area_accion.add_to_group("Empuje")
 	add_to_group("Personaje")
 	area2d.area_entered.connect(_on_area_2d_area_entered)
 	MensajeroGlobal.Max_corazones.emit(max_vida)
@@ -33,7 +35,7 @@ func _physics_process(delta: float):
 	#animaciones de 5 lados, tiene flip para reducir animaciones.
 	
 	#ataque del personaje
-	if Input.is_action_pressed( "atacar" ):
+	if Input.is_action_just_pressed( "atacar" ):
 		_atacar()
 		_animaciones_ataque(direccion)
 	
@@ -42,7 +44,8 @@ func _physics_process(delta: float):
 		move_and_slide()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	match area.owner.get_groups():
+	print(area.get_groups())
+	match area.get_groups():
 		[&"Entidad"]:
 			tomar_daño()
 

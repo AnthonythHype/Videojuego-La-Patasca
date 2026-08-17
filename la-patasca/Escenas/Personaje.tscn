@@ -693,7 +693,7 @@ area2d = NodePath("Area_reaccion")
 
 [node name="Animaciones" type="AnimatedSprite2D" parent="." unique_id=1147997243]
 sprite_frames = SubResource("SpriteFrames_gdjdp")
-animation = &"Atack_URL"
+animation = &"Atack_D"
 
 [node name="Cuerpo_jug" type="CollisionShape2D" parent="." unique_id=306283730]
 position = Vector2(0, 1)
@@ -712,6 +712,7 @@ collision_layer = 16
 collision_mask = 12
 script = ExtResource("5_fj443")
 "tamaño" = 25.0
+tipo = "Empuje"
 
 [node name="Particulas" type="GPUParticles2D" parent="Area_accion" unique_id=1758905085]
 texture_filter = 1

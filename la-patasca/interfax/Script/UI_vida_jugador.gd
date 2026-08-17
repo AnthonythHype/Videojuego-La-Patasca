@@ -6,8 +6,14 @@ var j = 5
 func _ready() -> void:
 	MensajeroGlobal.Max_corazones.connect(Maximo_corazones)
 	MensajeroGlobal.Cambio_vida.connect(cambiar_corazones)
+	MensajeroGlobal.reinicio_nivel.connect(Eliminar_corazones)
 
-func Maximo_corazones(_max: int): 
+func Eliminar_corazones() -> void:
+	for hijo in self.get_children():
+		self.remove_child(hijo)
+		hijo.free()
+
+func Maximo_corazones(_max: int):
 	for i in range(_max):
 		var X = corazon.instantiate()
 		add_child(X)

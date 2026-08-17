@@ -82,4 +82,5 @@ func volver_menu_inicio(): #funcion para volver al menu de inicio del juego
 	#tween.tween_property(pantalla, "modulate:a", 1.0, 1.5)
 	#await tween.finished # Esperamos a que la animación termine
 	ui_audio.play()
+	MensajeroGlobal.reinicio_nivel.emit()
 	get_tree().change_scene_to_packed(ESCENA)

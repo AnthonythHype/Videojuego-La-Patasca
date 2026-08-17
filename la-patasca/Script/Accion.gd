@@ -4,8 +4,10 @@ extends Area2D
 
 #no utilizado es para dirigir el mensaje de la accion al objeto que le afecta
 #como enviar empujar al enemigo y que este active un empuje o atacar.
-#@export var tipo: String = "vacio" 
+@export var tipo: String = "vacio" 
 
+func _ready() -> void:
+	add_to_group(tipo) #etiquetar a la entidad como la variable puesta
 #Proceso que posiciona el area de accion a la vista del personaje o enemigos
 #Accion es para todas las areas de accion
 func _process(_delta: float) -> void:

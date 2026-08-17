@@ -10,10 +10,12 @@ extends CharacterBody2D
 @onready var area_segura: Area2D = $area_segura
 @onready var cuerpo_patasca: Area2D = $cuerpo_patasca
 var aumento = false
+@onready var point_light_2d: PointLight2D = $PointLight2D
+
 #endregion
 
 func _ready() -> void:
-	add_to_group("Patasca") #se le coloca al grupo de la Patasca
+	area_segura.add_to_group("Patasca") #se le coloca al grupo de la Patasca
 	cuerpo_patasca.area_entered.connect(_on_area_2d_area_entered) #coneccion de la area de la patasca
 	
 func _process(delta):
@@ -30,9 +32,11 @@ func area_patasca(delta):
 		nueva_escala.x = clamp(nueva_escala.x, tamaño_minimo, tamaño_maximo)
 		nueva_escala.y = clamp(nueva_escala.y, tamaño_minimo, tamaño_maximo)
 		area_segura.scale = nueva_escala
+		point_light_2d.texture_scale = nueva_escala.x/10
+		print(point_light_2d.texture_scale)
 		MensajeroGlobal.Bar_patasca.emit(nueva_escala.x, tamaño_maximo)
 	elif area_segura.scale.x < tamaño_maximo:
-			area_segura.scale += Vector2(1, 1) * delta
+			area_segura.scale += Vector2(0.5, 0.5) * delta
 
 
 func _aumento():
@@ -41,6 +45,8 @@ func _aumento():
 	nueva_escala.x = clamp(nueva_escala.x, tamaño_minimo, tamaño_maximo)
 	nueva_escala.y = clamp(nueva_escala.y, tamaño_minimo, tamaño_maximo)
 	area_segura.scale += nueva_escala
+	point_light_2d.texture_scale += 0.01
+	#print(nueva_escala.x -4.7)
 	aumento = false
 	var tween = create_tween()
 	tween.tween_property(color_rect, "visible", true, 0.5)

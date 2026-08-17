@@ -23,6 +23,10 @@ signal puntos(puntos: int)
 @warning_ignore("unused_signal")
 signal muerte()
 
+#mensaje de reinicio de nivel
+@warning_ignore("unused_signal")
+signal reinicio_nivel()
+
 #mensajero para conectar el boton de volver del mennu de configuraciones
 #esta diseñado porque no esta funcionando el boton por si solo, 
 #sinque  necesite entrar al otro lado

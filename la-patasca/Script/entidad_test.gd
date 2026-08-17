@@ -1,9 +1,8 @@
 extends Entidad
-@onready var color_rect: ColorRect = $Area_accion/ColorRect
-
+#@onready var area_accion: Area2D = $Area_accion
 func _ready() -> void:
-	#entrada de los elementos
-	add_to_group("Entidad") #etiquetar a la entidad cono Entidad
+	#entrada de los elemento
+	#area_accion.add_to_group("Entidad") #etiquetar a la entidad como la variable puesta
 	area2d.area_entered.connect(_on_area_2d_area_entered) #entradas de las areas que enuentre
 	
 func _physics_process(delta: float):
@@ -12,27 +11,22 @@ func _physics_process(delta: float):
 		STATE.movimiento: #movimiento de la entidad
 			velocity = seguir_jugador()
 			if huir: current_state = STATE.huir #se activa el estado huida si encuentra el area Patasca
+			elif empujado: current_state = STATE.empujado #se activa cuando llega a se empujado por el jugador
 		STATE.huir:#movimiento de huida
 			velocity = enemigo_huir(delta)
 		STATE.empujado: #movimiento de empujado
-			empuje_enemigo(25)
+			empuje_enemigo(20)
 		STATE.atagar:
-				var tween = create_tween()
-				if ataco == true: 
-					color_rect.visible = true
-					tween.tween_property(colicion_ataque, "disabled", false, 0.1)
-					await tween.finished
-					color_rect.visible = false
-					colicion_ataque.disabled = true
-				else:
-					current_state = STATE.movimiento
+			if huir: current_state = STATE.huir #se activa el estado huida si encuentra el area Patasca
+			elif empujado: current_state = STATE.empujado #se activa cuando llega a se empujado por el jugador
+			else: ataque()
 	move_and_slide()
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	match area.owner.get_groups(): #busqueda de los padres de las areas #mejorar la forma de buscar
+	match area.get_groups(): #busqueda de los padres de las areas #mejorar la forma de buscar
 		[&"Patasca"]: #entrada cuando el area de la patasca entra
 			huir = true
 			vida_entidad = herido(1, vida_entidad)
-		[&"Personaje"]: #entrada cuando el area accion del jugador entra
-			current_state = STATE.empujado
+		[&"Empuje"]: #entrada cuando el area accion del jugador entra
+			empujado = true

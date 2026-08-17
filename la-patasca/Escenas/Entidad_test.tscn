@@ -44,6 +44,7 @@ collision_layer = 8
 collision_mask = 48
 script = ExtResource("3_imt58")
 "tamaño" = 10.0
+tipo = "Entidad"
 
 [node name="Colicion_ataque" type="CollisionShape2D" parent="Area_accion" unique_id=356209872]
 shape = SubResource("CircleShape2D_uut0w")
