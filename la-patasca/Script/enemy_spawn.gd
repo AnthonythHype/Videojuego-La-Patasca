@@ -10,11 +10,12 @@ var Enemigo_ins: int = randi_range(0, _Enemigos.size())
 @onready var timer: Timer = $Timer
 var delta = 1 #tiempo de siquiente enemigo
 var offset = 0.5 #multiplicador de tiempo para el siquiente enemigos
-
+var desactivar = false
 func _ready() -> void:
 	randomize()
 	_siguiente_enemigo()
-
+	MensajeroGlobal.muerte.connect(func(a): desactivar = a)
+	
 func _Spawn_Enemy():
 	#funcion de spwan de enemigos
 	var _posicion = _posicion_enemigo()
@@ -45,9 +46,9 @@ func _siguiente_enemigo():
 	timer.connect("timeout", Callable(self, "_on_timer_timeout"), CONNECT_REFERENCE_COUNTED)
 
 func _on_timer_timeout():
-	#funcion para realizar el spwan y volver en el ciclo de spawn
-	_Spawn_Enemy()
-	_siguiente_enemigo()
+	if !desactivar:#funcion para realizar el spwan y volver en el ciclo de spawn
+		_Spawn_Enemy()
+		_siguiente_enemigo()
 	
 #func _draw() -> void:
 #dibujo de los cuadros de posicion

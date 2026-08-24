@@ -18,7 +18,9 @@ var puntos_t = 0
 @onready var img_sol: TextureRect = $variables/Panel/img_sol
 @onready var text_puntos_total: Label = $variables/text_puntos_total
 @onready var text_puntos_total2: Label = $variables/text_puntos_total2
+@onready var tiempo_partida: Label = $variables/Tiempo_partida
 
+@onready var estado: Label = $Fondo_final/Estado
 
 #@onready var boton_salida: Button = $variables/botonSalida
 #endregion
@@ -28,7 +30,8 @@ func _ready() -> void:
 	#comienzo del timer para activar el final
 	timer.start()
 	timer.connect("timeout", Callable(self, "_on_timer_timeout"), CONNECT_REFERENCE_COUNTED)
-	
+	MensajeroGlobal.finalizar.connect(texto_final)
+	MensajeroGlobal.tiempo_final.connect(func(tiempo): tiempo_partida.text = tiempo)
 	MensajeroGlobal.puntuacion_total.connect(func(a): puntos_t = a )
 
 func _unhandled_input( event: InputEvent ) -> void:
@@ -38,6 +41,7 @@ func _unhandled_input( event: InputEvent ) -> void:
 	#inicio de pausa/undir para continuar
 	if event.is_action_pressed( "ui_accept" ) and !activar_fin and !puntuacion:
 		variables.visible = true #variables para activar el segundo estado
+		estado.visible = false
 		activar_fin = true #variables para activar la puntuacion en la funcion de puntos
 		finalizar(puntos_t)
 		#
@@ -88,3 +92,11 @@ func _on_timer_timeout():
 
 func salir(): #boton de salida, cambiar a pantalla de inicio
 	get_tree().change_scene_to_packed(ESCENA)
+
+func texto_final(activar_texto: bool):
+	if activar_texto:
+		estado.text = "Haz muerto"
+	else:
+		estado.text = "Sobreviviste"
+	
+	pass

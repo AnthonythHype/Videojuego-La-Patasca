@@ -19,13 +19,26 @@ signal puntuacion_total(puntos: int)
 @warning_ignore("unused_signal")
 signal puntos(puntos: int)
 
+#mensaje de  inicio de juego 
+@warning_ignore("unused_signal")
+signal iniciar(activar: bool)
 #mensaje de muerte del personaje
 @warning_ignore("unused_signal")
 signal muerte()
+#mensaje de finalizar el mundo
+@warning_ignore("unused_signal")
+signal finalizar()
+
+#mensaje de finalizar el mundo
+@warning_ignore("unused_signal")
+signal finalizar_mundo()
 
 #mensaje de reinicio de nivel
 @warning_ignore("unused_signal")
 signal reinicio_nivel()
+#mensaje para enviar el tiempo final
+@warning_ignore("unused_signal")
+signal tiempo_final(tiempo: String)
 
 #mensajero para conectar el boton de volver del mennu de configuraciones
 #esta diseñado porque no esta funcionando el boton por si solo, 

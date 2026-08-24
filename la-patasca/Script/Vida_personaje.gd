@@ -11,6 +11,8 @@ class_name Player extends CharacterBody2D
 		MensajeroGlobal.Cambio_vida.emit(vida)
 
 #func _ready() -> void:
+@onready var area_reaccion: Area2D = $Area_reaccion
+@onready var Collicion_reaccion: CollisionShape2D = $Area_reaccion/CollisionShape2D
 
 	
 func recuperar_vida() -> void:
@@ -20,7 +22,12 @@ func tomar_daño():
 	vida -= daño
 	if vida <= 0:
 		dead()
+	#var tween = create_tween()
+	#tween.tween_property(Collicion_reaccion, "disabled", true, 1)
+	#await tween.finished
+	#Collicion_reaccion.disabled = false
 
 func dead():
-	MensajeroGlobal.muerte.emit()
+	#print("moriste")
+	MensajeroGlobal.muerte.emit(true)
 	#get_parent().queue_free()

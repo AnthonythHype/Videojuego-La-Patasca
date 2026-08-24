@@ -7,7 +7,10 @@ extends Area2D
 @export var tipo: String = "vacio" 
 
 func _ready() -> void:
-	add_to_group(tipo) #etiquetar a la entidad como la variable puesta
+	if not tipo.is_empty():
+		add_to_group(tipo) #etiquetar a la entidad como la variable puesta
+	#else:
+	#	add_to_group(tipo)
 #Proceso que posiciona el area de accion a la vista del personaje o enemigos
 #Accion es para todas las areas de accion
 func _process(_delta: float) -> void:

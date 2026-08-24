@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ctooujvur6ma3" path="res://interfax/imagenes/GUISprite.png" id="2_vl8sc"]
 [ext_resource type="Script" uid="uid://chfec5w3bcgnj" path="res://interfax/Script/UI_vida_jugador.gd" id="3_qtk2j"]
 [ext_resource type="Script" uid="uid://bjegp4y6yc5nj" path="res://interfax/Script/UI_puntuacion.gd" id="4_51eck"]
+[ext_resource type="Script" uid="uid://lluckjogpwwe" path="res://interfax/Script/cronometro.gd" id="5_vl8sc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k0y7s"]
 atlas = ExtResource("2_vl8sc")
@@ -31,6 +32,7 @@ atlas = ExtResource("2_vl8sc")
 region = Rect2(16, 16, 16, 16)
 
 [node name="UI_vida_bar" type="CanvasLayer" unique_id=1174858941]
+layer = 0
 
 [node name="Control" type="Control" parent="." unique_id=213342787]
 layout_mode = 3
@@ -107,12 +109,15 @@ offset_bottom = 64.0
 grow_horizontal = 0
 script = ExtResource("4_51eck")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/Puntuacion" unique_id=645252616]
+[node name="HBoxContainer" type="VBoxContainer" parent="Control/Puntuacion" unique_id=169131135]
 layout_mode = 2
 
-[node name="text_puntos" type="Label" parent="Control/Puntuacion/HBoxContainer" unique_id=629948840]
+[node name="Cronometro" type="Label" parent="Control/Puntuacion/HBoxContainer" unique_id=629948840]
 layout_mode = 2
-text = "Puntos"
+text = "cronometro"
+script = ExtResource("5_vl8sc")
+tiempo = 1
 
-[node name="text_numero" type="Label" parent="Control/Puntuacion/HBoxContainer" unique_id=1143825564]
+[node name="puntos" type="Label" parent="Control/Puntuacion/HBoxContainer" unique_id=1143825564]
 layout_mode = 2
+text = "Puntos:"

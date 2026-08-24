@@ -13,15 +13,17 @@ enum STATE { #estados del enemigo
 	atagar,
 	empujado,
 	huir,
-	dash}
+	dash,
+	parar}
 var current_state:STATE = STATE.movimiento #estado actual / inicial
 var huir: bool = false #swith de huida
 var tiempo_espera: float = randf_range(10, 50) #tiempor de espera de un estado (huir)
 var direccion: Vector2 #direccion de movimiento
-var ataco = false
 var empujado = false
 #fuerza de empuje
 @export var Fuerza_empuje: int
+
+var atacar = false 
 
 var timer = 1 #timer de control
 @export var puntos_enemigo: int = 10 #puntuacion del enemigo al morir
@@ -38,10 +40,7 @@ func seguir_jugador() -> Vector2:
 		direccion = j.normalized()
 		return j
 	else:
-		#timer += delta*10 
-		if ataco == false:
-			ataco = true
-			current_state = STATE.atagar
+		atacar = true
 		return Vector2.ZERO
 
 func herido(daño: int, vida_actual: int):
@@ -77,12 +76,12 @@ func empuje_enemigo(velocidad_empuje):
  
 @onready var color_rect: ColorRect = $Area_accion/ColorRect
 func ataque():
-	var tween = create_tween().set_parallel()
-	if ataco == true: 
-		tween.tween_property(color_rect, "visible", true, 1) #color_rect.visible = true
-		tween.tween_property(colicion_ataque, "disabled", false, 0.5).set_trans(Tween.TRANS_EXPO)
-		await tween.finished
-		color_rect.visible = false
-		colicion_ataque.disabled = true
-		ataco = false
+	var tween = create_tween()
+	color_rect.visible = true #color para poder diferenciarlo antes de hacer la animacion de ataque.
+	atacar = false
+	tween.tween_property(colicion_ataque, "disabled", false, 1).set_trans(Tween.TRANS_EXPO)
+	#print(colicion_ataque.disabled)
+	await tween.finished
+	color_rect.visible = false
+	colicion_ataque.disabled = true
 	current_state = STATE.movimiento

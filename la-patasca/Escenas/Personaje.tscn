@@ -687,13 +687,12 @@ scale_curve = SubResource("CurveTexture_7216l")
 [sub_resource type="CircleShape2D" id="CircleShape2D_0kjke"]
 radius = 20.024984
 
-[node name="Personaje" type="CharacterBody2D" unique_id=1352873288 node_paths=PackedStringArray("area2d")]
+[node name="Personaje" type="CharacterBody2D" unique_id=1352873288]
 script = ExtResource("1_0gco6")
-area2d = NodePath("Area_reaccion")
 
 [node name="Animaciones" type="AnimatedSprite2D" parent="." unique_id=1147997243]
 sprite_frames = SubResource("SpriteFrames_gdjdp")
-animation = &"Atack_D"
+animation = &"Idle_D"
 
 [node name="Cuerpo_jug" type="CollisionShape2D" parent="." unique_id=306283730]
 position = Vector2(0, 1)

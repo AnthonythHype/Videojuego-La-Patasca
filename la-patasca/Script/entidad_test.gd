@@ -1,10 +1,13 @@
 extends Entidad
-#@onready var area_accion: Area2D = $Area_accion
+@onready var area_accion: Area2D = $Area_accion
+var parar = false
 func _ready() -> void:
+
 	#entrada de los elemento
-	#area_accion.add_to_group("Entidad") #etiquetar a la entidad como la variable puesta
+	#area_accion.tipo = "Entidad" #etiquetar a la entidad como la variable puesta
 	area2d.area_entered.connect(_on_area_2d_area_entered) #entradas de las areas que enuentre
-	
+	MensajeroGlobal.muerte.connect(func(a): parar = a)
+
 func _physics_process(delta: float):
 	#Estados de la entidad y su movimiento
 	match current_state:
@@ -12,6 +15,8 @@ func _physics_process(delta: float):
 			velocity = seguir_jugador()
 			if huir: current_state = STATE.huir #se activa el estado huida si encuentra el area Patasca
 			elif empujado: current_state = STATE.empujado #se activa cuando llega a se empujado por el jugador
+			elif atacar:  current_state = STATE.atagar
+			#elif parar: current_state = STATE.parar
 		STATE.huir:#movimiento de huida
 			velocity = enemigo_huir(delta)
 		STATE.empujado: #movimiento de empujado
@@ -19,7 +24,11 @@ func _physics_process(delta: float):
 		STATE.atagar:
 			if huir: current_state = STATE.huir #se activa el estado huida si encuentra el area Patasca
 			elif empujado: current_state = STATE.empujado #se activa cuando llega a se empujado por el jugador
-			else: ataque()
+			if !atacar: 
+				return
+			else: await ataque() 
+		STATE.parar:
+			velocity = Vector2.ZERO
 	move_and_slide()
 
 

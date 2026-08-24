@@ -33,7 +33,7 @@ func area_patasca(delta):
 		nueva_escala.y = clamp(nueva_escala.y, tamaño_minimo, tamaño_maximo)
 		area_segura.scale = nueva_escala
 		point_light_2d.texture_scale = nueva_escala.x/10
-		print(point_light_2d.texture_scale)
+		#print(point_light_2d.texture_scale)
 		MensajeroGlobal.Bar_patasca.emit(nueva_escala.x, tamaño_maximo)
 	elif area_segura.scale.x < tamaño_maximo:
 			area_segura.scale += Vector2(0.5, 0.5) * delta

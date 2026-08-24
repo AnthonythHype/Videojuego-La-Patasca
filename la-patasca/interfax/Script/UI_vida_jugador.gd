@@ -13,6 +13,7 @@ func Eliminar_corazones() -> void:
 		self.remove_child(hijo)
 		hijo.free()
 
+
 func Maximo_corazones(_max: int):
 	for i in range(_max):
 		var X = corazon.instantiate()

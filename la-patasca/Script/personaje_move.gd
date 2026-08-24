@@ -3,7 +3,7 @@ extends Player
 @export var velocidad: float = 600.0
 var direccion: Vector2
 
-@export var area2d: Area2D
+
 
 @onready var animaciones: AnimatedSprite2D = $Animaciones
 
@@ -17,7 +17,7 @@ var atacar: bool = false
 func _ready():
 	#area_accion.add_to_group("Empuje")
 	add_to_group("Personaje")
-	area2d.area_entered.connect(_on_area_2d_area_entered)
+	area_reaccion.area_entered.connect(_on_area_2d_area_entered)
 	MensajeroGlobal.Max_corazones.emit(max_vida)
 	MensajeroGlobal.Cambio_vida.emit(vida)
 
@@ -44,7 +44,7 @@ func _physics_process(delta: float):
 		move_and_slide()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	print(area.get_groups())
+	#print(area.get_groups())
 	match area.get_groups():
 		[&"Entidad"]:
 			tomar_daño()
