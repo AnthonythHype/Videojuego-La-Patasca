@@ -39,8 +39,11 @@ func _ready() -> void:
 
 #funcion de botones para iniciar la pausa
 func _unhandled_input( event: InputEvent ) -> void:
+	if event.is_action_pressed( "pausa" ):
+		get_tree().paused = false
+		visible = false
 	#es para realizar un enfoque a los botones y se pueda usar el teclado
-	if sis_pausa.visible == true: #usar el teclado en el menu de pausa
+	elif sis_pausa.visible == true: #usar el teclado en el menu de pausa
 		if event.is_action_pressed( "ui_right" ) or event.is_action_pressed( "ui_left" ):
 			button_continuar.grab_focus()
 	elif salir.visible == true: #usar el teclado en la ventana de salir

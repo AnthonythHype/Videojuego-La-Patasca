@@ -2,15 +2,19 @@ extends Label
 
 var timer = 0
 var timer_on = false
-@export var tiempo = 5
+var tiempo = 5
 var timer_passed 
 
 func _ready() -> void:
-	MensajeroGlobal.iniciar.connect(func(a): timer_on = a)
+	MensajeroGlobal.iniciar.connect(iniciar_cronometro)
 	MensajeroGlobal.muerte.connect(final_tiempo)
 	MensajeroGlobal.reinicio_nivel.connect(func(): 
 		timer_on = false
 		timer = 0)
+
+func iniciar_cronometro(activo, _tiempo):
+	timer_on = activo
+	tiempo = _tiempo
 
 func _process(delta: float) -> void:
 	if (timer_on):

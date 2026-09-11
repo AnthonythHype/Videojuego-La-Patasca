@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://po1ijg4uevxm"]
+
+[ext_resource type="Script" uid="uid://0ptk4hl2u378" path="res://Script/nodo_entidades.gd" id="1_3d5vu"]
+[ext_resource type="PackedScene" uid="uid://dwwhyiux71uu7" path="res://Escenas/Patasca.tscn" id="1_ywuw6"]
+[ext_resource type="PackedScene" uid="uid://ctmioe70d20fe" path="res://Escenas/Personaje.tscn" id="2_3d5vu"]
+
+[node name="Nodo_entidades" type="Node2D" unique_id=1374817774]
+script = ExtResource("1_3d5vu")
+
+[node name="Patasca" parent="." unique_id=239368157 instance=ExtResource("1_ywuw6")]
+
+[node name="Personaje" parent="." unique_id=1352873288 instance=ExtResource("2_3d5vu")]
+position = Vector2(0, 45)
+
+[node name="Camera2D" type="Camera2D" parent="Personaje" unique_id=620750167]
+zoom = Vector2(1.7, 1.7)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.15
+drag_top_margin = 0.15
+drag_right_margin = 0.15
+drag_bottom_margin = 0.15
+editor_draw_drag_margin = true

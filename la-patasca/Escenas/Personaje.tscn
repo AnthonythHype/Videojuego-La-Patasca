@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://gp8r3sikgotg" path="res://Sprite/16x16 Attack-Sheet.png" id="2_7216l"]
 [ext_resource type="Texture2D" uid="uid://b3yrlema1ftte" path="res://Sprite/Wind_Charge_(item)_JE1_BE1.png" id="5_7216l"]
 [ext_resource type="Script" uid="uid://cwhaa8amlqsg1" path="res://Script/Accion.gd" id="5_fj443"]
+[ext_resource type="Texture2D" uid="uid://dhc34g8jpxs7p" path="res://Sprite/2d_lights_and_shadows_neutral_point_light.webp" id="7_ok32j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v8ejs"]
 atlas = ExtResource("2_7216l")
@@ -689,6 +690,7 @@ radius = 20.024984
 
 [node name="Personaje" type="CharacterBody2D" unique_id=1352873288]
 script = ExtResource("1_0gco6")
+velocidad = 650.0
 
 [node name="Animaciones" type="AnimatedSprite2D" parent="." unique_id=1147997243]
 sprite_frames = SubResource("SpriteFrames_gdjdp")
@@ -738,3 +740,8 @@ offset_top = -17.0
 offset_right = 17.0
 offset_bottom = 17.0
 color = Color(0.68475723, 6.256998e-07, 0.3889438, 0.20392157)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1457690700]
+energy = 0.35
+texture = ExtResource("7_ok32j")
+texture_scale = 0.2

@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://bk1uhqmtymjkl"]
+
+[ext_resource type="Script" uid="uid://c5lv08l0vvmg4" path="res://entidad_test_2.gd" id="1_c5dli"]
+[ext_resource type="Texture2D" uid="uid://dtxrausekdw2d" path="res://Sprite/test_entidad.png" id="2_fnk80"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dehoc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jyp6m"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_imt58"]
+radius = 6.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fnk80"]
+size = Vector2(20, 8)
+
+[node name="Entidad_test_2" type="CharacterBody2D" unique_id=1461444522 node_paths=PackedStringArray("area2d")]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_c5dli")
+vida_entidad = 2
+distancia_minima = 150.0
+area2d = NodePath("Area_reaccion")
+Fuerza_empuje = 30
+puntos_enemigo = 30
+
+[node name="Animacion_enemigo" type="AnimatedSprite2D" parent="." unique_id=1260275401]
+sprite_frames = SubResource("SpriteFrames_dehoc")
+
+[node name="Cuerpo_area" type="CollisionShape2D" parent="." unique_id=1397124769]
+light_mask = 0
+visibility_layer = 0
+shape = SubResource("CircleShape2D_jyp6m")
+one_way_collision = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=409092971]
+modulate = Color(0.99999994, 0.17209601, 0.27640727, 1)
+texture = ExtResource("2_fnk80")
+
+[node name="Area_reaccion" type="Area2D" parent="." unique_id=1252161463]
+collision_layer = 8
+collision_mask = 52
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_reaccion" unique_id=44599145]
+shape = SubResource("CircleShape2D_imt58")
+
+[node name="Area_accion" type="Area2D" parent="." unique_id=649655404]
+collision_layer = 8
+collision_mask = 48
+
+[node name="Colicion_ataque" type="CollisionShape2D" parent="Area_accion" unique_id=356209872]
+position = Vector2(-5, 0)
+shape = SubResource("RectangleShape2D_fnk80")
+disabled = true
+
+[node name="ColorRect" type="ColorRect" parent="Area_accion" unique_id=745156237]
+visible = false
+offset_left = -92.0
+offset_top = -7.0
+offset_right = -7.0
+offset_bottom = 7.0
+color = Color(0.95686275, 0, 0.1764706, 0.26666668)

@@ -13,8 +13,7 @@ enum STATE { #estados del enemigo
 	atagar,
 	empujado,
 	huir,
-	dash,
-	parar}
+	dash}
 var current_state:STATE = STATE.movimiento #estado actual / inicial
 var huir: bool = false #swith de huida
 var tiempo_espera: float = randf_range(10, 50) #tiempor de espera de un estado (huir)
@@ -22,9 +21,9 @@ var direccion: Vector2 #direccion de movimiento
 var empujado = false
 #fuerza de empuje
 @export var Fuerza_empuje: int
-
+var dash_enemy = 100
 var atacar = false 
-
+@onready var area_accion: Area2D = $Area_accion
 var timer = 1 #timer de control
 @export var puntos_enemigo: int = 10 #puntuacion del enemigo al morir
 @onready var colicion_ataque: CollisionShape2D = $Area_accion/Colicion_ataque
@@ -51,14 +50,14 @@ func herido(daño: int, vida_actual: int):
 		queue_free() #lo destruye al funalizar su vida
 	return vida_actual
 
-func enemigo_huir(delta):
+func enemigo_huir(delta,rango_minimo_huida):
 	#funcion de retirada del enemigo de la zona segura
 	timer += delta*10 
 	if timer >= tiempo_espera: #tiempo que dura la huida
 		current_state = STATE.movimiento #cambio de estado
 		timer = 1
 		huir = false
-		tiempo_espera = randf_range(10, 50)
+		tiempo_espera = randf_range(rango_minimo_huida, 50)
 	#cambio de direccion del enemigo, a lo contrario
 	return velocidad * (global_position - Patasca.global_position).normalized()
 
@@ -75,13 +74,25 @@ func empuje_enemigo(velocidad_empuje):
 	tween.finished.connect(func(): current_state = STATE.movimiento)
  
 @onready var color_rect: ColorRect = $Area_accion/ColorRect
-func ataque():
+func ataque(tiempo_ataque):
+	print("atacar")
 	var tween = create_tween()
 	color_rect.visible = true #color para poder diferenciarlo antes de hacer la animacion de ataque.
 	atacar = false
-	tween.tween_property(colicion_ataque, "disabled", false, 1).set_trans(Tween.TRANS_EXPO)
+	tween.tween_property(colicion_ataque, "disabled", false, tiempo_ataque).set_trans(Tween.TRANS_EXPO)
 	#print(colicion_ataque.disabled)
 	await tween.finished
 	color_rect.visible = false
 	colicion_ataque.disabled = true
 	current_state = STATE.movimiento
+
+func dash_enemigo():
+	var tween = create_tween().set_parallel()
+	tween.tween_property(self, "position", jugador.position, 0.5)
+	#var extra = distancia_minima
+	distancia_minima = 10
+	await ataque(1.3)
+	distancia_minima = 60
+	
+	#tween.tween_property(color_rect, "position", direccion, 0.3)
+	

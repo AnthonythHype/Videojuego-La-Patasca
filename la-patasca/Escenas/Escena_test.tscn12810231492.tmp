@@ -1,13 +1,15 @@
 [gd_scene format=4 uid="uid://epw7uwf35rpn"]
 
 [ext_resource type="Script" uid="uid://bhjb0m2ys15ac" path="res://Script/mundo_general.gd" id="1_n1g0h"]
+[ext_resource type="PackedScene" uid="uid://ctmioe70d20fe" path="res://Escenas/Personaje.tscn" id="1_rqqkd"]
 [ext_resource type="PackedScene" uid="uid://dl4rccgv080gy" path="res://interfax/Escenarios/tutorial.tscn" id="2_6xm2h"]
+[ext_resource type="PackedScene" uid="uid://bbds0ddq5i818" path="res://Escenas/enemy_spawn.tscn" id="2_dv4ul"]
 [ext_resource type="Material" uid="uid://wk85khms2lh6" path="res://test_shader/Material_1_test.tres" id="2_gqmtc"]
 [ext_resource type="Texture2D" uid="uid://bimmy40q0j3v0" path="res://Sprite/test_bloque.png" id="2_n165g"]
 [ext_resource type="Texture2D" uid="uid://djmlecwoq1dcs" path="res://Sprite/test_circulo.png" id="3_6xm2h"]
-[ext_resource type="PackedScene" uid="uid://po1ijg4uevxm" path="res://Escenas/nodo_entidades.tscn" id="6_n1g0h"]
-[ext_resource type="PackedScene" uid="uid://bbds0ddq5i818" path="res://Escenas/enemy_spawn.tscn" id="7_7dnrs"]
+[ext_resource type="PackedScene" uid="uid://dwwhyiux71uu7" path="res://Escenas/Patasca.tscn" id="3_tuxke"]
 [ext_resource type="PackedScene" uid="uid://bnv4dcdayx58s" path="res://interfax/Escenarios/pausa_fin_menu.tscn" id="9_7dnrs"]
+[ext_resource type="PackedScene" uid="uid://bk1uhqmtymjkl" path="res://Escenas/Entidad_test2.tscn" id="10_lsfpk"]
 [ext_resource type="Texture2D" uid="uid://dhc34g8jpxs7p" path="res://Sprite/2d_lights_and_shadows_neutral_point_light.webp" id="13_6xm2h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tuxke"]
@@ -38,34 +40,63 @@ texture = ExtResource("3_6xm2h")
 tile_map_data = PackedByteArray("AAD4/wMAAAAAAAAAAAD5/wMAAAAAAAAAAAD4/wIAAAAAAAAAAAD5/wIAAAAAAAAAAAD5/wQAAAAAAAAAAAD4/wQAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAGAPr/AAAAAAAAAAAGAPv/AAAAAAAAAADw//L/AAAAAAAAAADx//L/AAAAAAAAAADy//L/AAAAAAAAAADz//L/AAAAAAAAAAD0//L/AAAAAAAAAAD1//L/AAAAAAAAAAD2//L/AAAAAAAAAAD3//L/AAAAAAAAAAD4//L/AAAAAAAAAAD5//L/AAAAAAAAAAD6//L/AAAAAAAAAAD7//L/AAAAAAAAAAD8//L/AAAAAAAAAAD9//L/AAAAAAAAAAD+//L/AAAAAAAAAAD///L/AAAAAAAAAAAAAPL/AAAAAAAAAAABAPL/AAAAAAAAAAACAPL/AAAAAAAAAAADAPL/AAAAAAAAAAAEAPL/AAAAAAAAAAAFAPL/AAAAAAAAAAAGAPL/AAAAAAAAAAAHAPL/AAAAAAAAAAAIAPL/AAAAAAAAAAAJAPL/AAAAAAAAAAAKAPL/AAAAAAAAAAALAPL/AAAAAAAAAAAMAPL/AAAAAAAAAAANAPL/AAAAAAAAAAAOAPL/AAAAAAAAAAAPAPL/AAAAAAAAAAAQAPL/AAAAAAAAAAARAPL/AAAAAAAAAAASAPL/AAAAAAAAAAATAPL/AAAAAAAAAAAUAPL/AAAAAAAAAAAUAA0AAAAAAAAAAAATAA0AAAAAAAAAAAASAA0AAAAAAAAAAAARAA0AAAAAAAAAAAAQAA0AAAAAAAAAAAAPAA0AAAAAAAAAAAAOAA0AAAAAAAAAAAANAA0AAAAAAAAAAAAMAA0AAAAAAAAAAAALAA0AAAAAAAAAAAAKAA0AAAAAAAAAAAAJAA0AAAAAAAAAAAAIAA0AAAAAAAAAAAAHAA0AAAAAAAAAAAAGAA0AAAAAAAAAAAAFAA0AAAAAAAAAAAAEAA0AAAAAAAAAAAADAA0AAAAAAAAAAAACAA0AAAAAAAAAAAABAA0AAAAAAAAAAAAAAA0AAAAAAAAAAAD//w0AAAAAAAAAAAD+/w0AAAAAAAAAAAD9/w0AAAAAAAAAAAD8/w0AAAAAAAAAAAD7/w0AAAAAAAAAAAD6/w0AAAAAAAAAAAD5/w0AAAAAAAAA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")
 tile_set = SubResource("TileSet_rqqkd")
 
+[node name="Enemy_Spawn" parent="." unique_id=1838097189 node_paths=PackedStringArray("Nodo_entidades") instance=ExtResource("2_dv4ul")]
+Nodo_entidades = NodePath("../Entidades")
+
+[node name="Entidades" type="Node2D" parent="." unique_id=1827774021]
+
+[node name="Patasca" parent="Entidades" unique_id=239368157 instance=ExtResource("3_tuxke")]
+position = Vector2(-249, 4)
+
+[node name="Personaje" parent="Entidades" unique_id=1352873288 instance=ExtResource("1_rqqkd")]
+position = Vector2(-1, 34)
+
+[node name="Camera2D" type="Camera2D" parent="Entidades/Personaje" unique_id=1244682404]
+zoom = Vector2(1.7, 1.7)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.15
+drag_top_margin = 0.15
+drag_right_margin = 0.15
+drag_bottom_margin = 0.15
+editor_draw_drag_margin = true
+
 [node name="Node2D" type="Node2D" parent="." unique_id=133452223]
 position = Vector2(-114, -64)
 
-[node name="Nodo_entidades" parent="." unique_id=1374817774 instance=ExtResource("6_n1g0h")]
-
-[node name="Enemy_Spawn" parent="." unique_id=1838097189 instance=ExtResource("7_7dnrs")]
+[node name="Entidad_test_2" parent="." unique_id=1461444522 instance=ExtResource("10_lsfpk")]
+position = Vector2(159, 2)
+velocidad = 10.0
+distancia_minima = 80.0
 
 [node name="pausa_fin_menu" parent="." unique_id=919088606 instance=ExtResource("9_7dnrs")]
 visible = false
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=685195698]
-position = Vector2(-285, -192)
+visible = false
+position = Vector2(-250, -155)
 texture = ExtResource("13_6xm2h")
-texture_scale = 1.06
+texture_scale = 0.55
 
 [node name="PointLight2D2" type="PointLight2D" parent="." unique_id=1349328115]
-position = Vector2(267, -177)
+visible = false
+position = Vector2(268, -171)
 texture = ExtResource("13_6xm2h")
 texture_scale = 0.55
 
 [node name="PointLight2D3" type="PointLight2D" parent="." unique_id=563413315]
-position = Vector2(282, 174)
+visible = false
+position = Vector2(267, 154)
 texture = ExtResource("13_6xm2h")
+texture_scale = 0.55
 
 [node name="PointLight2D4" type="PointLight2D" parent="." unique_id=462843942]
-position = Vector2(-264, 176)
+visible = false
+position = Vector2(-261, 181)
 texture = ExtResource("13_6xm2h")
 texture_scale = 0.55
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=362304793]
+visible = false
 color = Color(0.033853274, 0.03385328, 0.033853255, 1)

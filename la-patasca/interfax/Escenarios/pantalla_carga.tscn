@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://7jejfrbn2vyl"]
+
+[ext_resource type="Texture2D" uid="uid://s0xqf7weurw" path="res://Sprite/16x16 Run-Sheet.png" id="1_626e7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_re43b"]
+atlas = ExtResource("1_626e7")
+region = Rect2(0, 40, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2vn3"]
+atlas = ExtResource("1_626e7")
+region = Rect2(20, 40, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7433"]
+atlas = ExtResource("1_626e7")
+region = Rect2(40, 40, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5l3ny"]
+atlas = ExtResource("1_626e7")
+region = Rect2(60, 40, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b70eh"]
+atlas = ExtResource("1_626e7")
+region = Rect2(80, 40, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rov46"]
+atlas = ExtResource("1_626e7")
+region = Rect2(100, 40, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d2whd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_re43b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2vn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7433")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5l3ny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b70eh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rov46")
+}],
+"loop": true,
+"name": &"cargando",
+"speed": 5.0
+}]
+
+[node name="Pantalla_Carga" type="CanvasLayer" unique_id=1194929726]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=999226298]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3529412, 0.15294118, 0, 1)
+
+[node name="Control" type="Control" parent="." unique_id=762242925]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Node2D" type="Node2D" parent="Control" unique_id=959629548]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/Node2D" unique_id=1221139490]
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_d2whd")
+animation = &"cargando"

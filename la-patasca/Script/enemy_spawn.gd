@@ -1,10 +1,10 @@
 extends Node2D
 
 #Emenigos en array para poder añadirlos en una lista
-@export var Nodo_entidades: Node2D
+@onready var Nodo_entidades: Node2D = get_tree().get_first_node_in_group("Nodo_entidades")
 @export var _Enemigos: Array[PackedScene] #lista de los enemigos que spwanean
 var enemigo_instanciado = Node
-var Enemigo_ins: int = randi_range(0, _Enemigos.size())
+var Enemigo_ins: int = 1
 
 #timer de spawn de enemigo
 @onready var timer: Timer = $Timer
@@ -46,6 +46,7 @@ func _siguiente_enemigo():
 	timer.connect("timeout", Callable(self, "_on_timer_timeout"), CONNECT_REFERENCE_COUNTED)
 
 func _on_timer_timeout():
+	Enemigo_ins = randi_range(0, _Enemigos.size())
 	if !desactivar:#funcion para realizar el spwan y volver en el ciclo de spawn
 		_Spawn_Enemy()
 		_siguiente_enemigo()

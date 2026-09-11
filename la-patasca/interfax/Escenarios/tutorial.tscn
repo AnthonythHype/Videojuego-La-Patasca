@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://dl4rccgv080gy"]
+
+[ext_resource type="Texture2D" uid="uid://4irpwk3spce4" path="res://interfax/imagenes/Teclas/arrow_keys_alternative_paper_strip4.png" id="1_drvaa"]
+[ext_resource type="Script" uid="uid://bir7cnvqrmq81" path="res://interfax/Script/Tutorial_move.gd" id="1_sxayn"]
+[ext_resource type="Texture2D" uid="uid://c7j2ymdq2ywpx" path="res://interfax/imagenes/Teclas/x_alternative_paper.png" id="2_sxayn"]
+[ext_resource type="Texture2D" uid="uid://cbogg486swbo0" path="res://interfax/imagenes/Teclas/esc_alternative_paper.png" id="3_5ragi"]
+[ext_resource type="Script" uid="uid://ml8mvip1wtav" path="res://interfax/Script/Tutorial_acction.gd" id="4_5ragi"]
+[ext_resource type="Texture2D" uid="uid://dvev154ps2s45" path="res://interfax/imagenes/Teclas/space_alternative_paper.png" id="4_17j8o"]
+[ext_resource type="Texture2D" uid="uid://cqmnrvji44esc" path="res://interfax/imagenes/imagen prueba 1.png" id="7_17j8o"]
+
+[node name="Tutorial" type="CanvasLayer" unique_id=1008195245]
+
+[node name="Control" type="Control" parent="." unique_id=936265086]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="move" type="MarginContainer" parent="Control" unique_id=538575840]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sxayn")
+
+[node name="Tecla_Up" type="Sprite2D" parent="Control/move" unique_id=370272901]
+position = Vector2(0, -100)
+texture = ExtResource("1_drvaa")
+hframes = 4
+
+[node name="Tecla_Down" type="Sprite2D" parent="Control/move" unique_id=1411183573]
+position = Vector2(0, 109)
+texture = ExtResource("1_drvaa")
+hframes = 4
+frame = 1
+
+[node name="Tecla_Right" type="Sprite2D" parent="Control/move" unique_id=1158341938]
+position = Vector2(125, 0)
+texture = ExtResource("1_drvaa")
+hframes = 4
+frame = 3
+
+[node name="Tecla_Left" type="Sprite2D" parent="Control/move" unique_id=1324374789]
+position = Vector2(-114, 0)
+texture = ExtResource("1_drvaa")
+hframes = 4
+frame = 2
+
+[node name="Tecla_Accion1" type="Sprite2D" parent="Control/move" unique_id=101826635]
+position = Vector2(-114, -98)
+texture = ExtResource("2_sxayn")
+
+[node name="Acction" type="MarginContainer" parent="Control" unique_id=306693774]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_5ragi")
+
+[node name="Tecla_ESC" type="Sprite2D" parent="Control/Acction" unique_id=191700963]
+position = Vector2(825, 209)
+texture = ExtResource("3_5ragi")
+
+[node name="Tecla_Space" type="Sprite2D" parent="Control/Acction" unique_id=1099119060]
+position = Vector2(804, 350)
+texture = ExtResource("4_17j8o")
+
+[node name="Label" type="Label" parent="Control/Acction" unique_id=2012651924]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Menu de Pausa"
+
+[node name="Manual" type="TextureRect" parent="Control" unique_id=115941062]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -469.0
+offset_top = -116.0
+offset_right = -862.6564
+offset_bottom = -330.73547
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_17j8o")
+expand_mode = 3
+
+[node name="Timer" type="Timer" parent="Control" unique_id=741023793]

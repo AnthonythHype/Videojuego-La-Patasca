@@ -21,7 +21,7 @@ signal puntos(puntos: int)
 
 #mensaje de  inicio de juego 
 @warning_ignore("unused_signal")
-signal iniciar(activar: bool)
+signal iniciar(activar: bool, tiempo: int)
 #mensaje de muerte del personaje
 @warning_ignore("unused_signal")
 signal muerte()
